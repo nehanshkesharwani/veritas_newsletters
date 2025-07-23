@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veritas Speaking Digest – Vol. 1, Issue 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      color: #1f2937;
+      font-weight: 400;
+    }
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.04);
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.1);
+    }
+    .header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 35%, #334155 100%);
+      color: white;
+      text-align: center;
+      padding: 45px 30px 40px;
+      position: relative;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #10b981, #059669, #047857);
+    }
+    .header img {
+      width: 110px;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      filter: brightness(1.1);
+    }
+    .newsletter-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    .header-subline {
+      font-size: 17px;
+      font-style: italic;
+      margin-bottom: 20px;
+      opacity: 0.85;
+      color: #cbd5e1;
+    }
+    .header-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.2);
+    }
+    .header-quote {
+      font-size: 15px;
+      font-style: italic;
+      opacity: 0.75;
+      margin-top: 12px;
+      color: #94a3b8;
+    }
+    .intro {
+      padding: 40px;
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      font-size: 18px;
+      color: #047857;
+      font-weight: 500;
+      line-height: 1.7;
+      border-bottom: 3px solid #10b981;
+    }
+    .content {
+      padding: 45px 40px;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #374151;
+      font-weight: 400;
+    }
+    .content h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 26px;
+      color: #1f2937;
+      margin-top: 0;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+    .section-emoji {
+      font-size: 28px;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    .lesson-block {
+      background: #ffffff;
+      margin: 32px 0;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      border: 1px solid #f1f5f9;
+      border-left: 5px solid #10b981;
+      transition: all 0.2s ease;
+    }
+    .lesson-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      font-size: 19px;
+      letter-spacing: -0.2px;
+    }
+    .lesson-title .icon {
+      margin-right: 10px;
+      font-size: 20px;
+      color: #10b981;
+      flex-shrink: 0;
+    }
+    .value-highlight {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      color: #92400e;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 15px;
+      display: inline-block;
+      margin: 2px 0;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+    .recap-list {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      padding: 24px 28px;
+      border-radius: 12px;
+      margin-top: 32px;
+      color: #1f2937;
+      border: 2px dashed #cbd5e1;
+      font-weight: 500;
+    }
+    .recap-icon {
+      margin-right: 8px;
+      color: #10b981;
+      font-size: 16px;
+    }
+    .quote-block {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: #e2e8f0;
+      padding: 35px 40px;
+      margin: 50px 40px 40px;
+      font-style: italic;
+      border-radius: 16px;
+      position: relative;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .quote-block::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #10b981, #059669);
+      border-radius: 16px 16px 0 0;
+    }
+    .quote-author {
+      display: block;
+      color: #94a3b8;
+      font-size: 16px;
+      font-weight: 500;
+      margin-top: 16px;
+      font-style: normal;
+    }
+    .cta-btn {
+      display: inline-block;
+      margin: 40px auto;
+      padding: 16px 36px;
+      min-height: 44px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      text-decoration: none;
+      text-align: center;
+      font-size: 17px;
+      box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.2), 0 4px 6px -2px rgba(16, 185, 129, 0.1);
+      letter-spacing: -0.2px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-sizing: border-box;
+    }
+    .tip-box {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      margin: 40px;
+      padding: 24px 28px;
+      border-radius: 16px;
+      color: #92400e;
+      font-weight: 500;
+      font-size: 16px;
+      border: 1px solid #fed7aa;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      position: relative;
+    }
+    .tip-box::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, #f59e0b, #d97706);
+      border-radius: 16px 0 0 16px;
+    }
+    .closing-block {
+      text-align: center;
+      padding: 60px 30px 70px;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border-top: 1px solid #e2e8f0;
+      position: relative;
+    }
+    .closing-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #10b981, #059669);
+      border-radius: 0 0 4px 4px;
+    }
+    .closing-block p {
+      margin: 12px 0;
+    }
+    .closing-block .final-quote {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    .closing-block .note {
+      font-size: 15px;
+      color: #6b7280;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    /* Responsive Images */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Prevent horizontal scrolling */
+    * {
+      box-sizing: border-box;
+    }
+
+    /* Mobile Responsive Styles - Following exact specifications */
+    @media (max-width: 480px) {
+      /* Main title (h1 equivalent) */
+      .newsletter-title {
+        font-size: 1.8rem;
+        line-height: 1.3;
+      }
+      
+      /* Subheadings (h2, h3 equivalent) */
+      .content h2,
+      .lesson-title,
+      .closing-block .final-quote {
+        font-size: 1.3rem;
+        line-height: 1.4;
+      }
+      
+      /* Body text and lists */
+      p, 
+      li,
+      .content,
+      .intro,
+      .quote-block,
+      .tip-box,
+      .recap-list {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      /* Container padding as requested */
+      .container {
+        padding: 0 20px;
+        margin: 20px auto;
+        border-radius: 16px;
+      }
+      
+      /* Enhanced mobile spacing and readability */
+      .header {
+        padding: 30px 25px 25px;
+      }
+      
+      .header img {
+        width: 80px;
+        margin-bottom: 15px;
+      }
+      
+      .header-subline {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 16px;
+      }
+      
+      .header-tag {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+      }
+      
+      .header-quote {
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+      
+      .intro {
+        padding: 25px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .content {
+        padding: 30px 25px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .section-emoji {
+        font-size: 1.2rem;
+        margin-right: 8px;
+      }
+      
+      .lesson-block {
+        margin: 24px 0;
+        padding: 20px;
+        border-radius: 12px;
+      }
+      
+      .lesson-title .icon {
+        font-size: 1.1rem;
+        margin-right: 8px;
+      }
+      
+      .value-highlight {
+        font-size: 0.9rem;
+        padding: 3px 10px;
+        word-break: break-word;
+        display: inline;
+      }
+      
+      .recap-list {
+        padding: 20px;
+        margin-top: 24px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .quote-block {
+        margin: 25px 0;
+        padding: 25px 20px;
+        font-size: 1rem;
+        line-height: 1.6;
+        border-radius: 12px;
+      }
+      
+      .tip-box {
+        margin: 25px 0;
+        padding: 20px;
+        font-size: 1rem;
+        line-height: 1.6;
+        border-radius: 12px;
+      }
+      
+      .closing-block {
+        padding: 40px 25px 50px;
+      }
+      
+      .closing-block .note {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+      
+      /* Touch-friendly buttons */
+      .cta-btn {
+        padding: 14px 28px;
+        font-size: 1rem;
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      /* List spacing */
+      ul li {
+        margin-bottom: 12px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      /* Prevent text overflow */
+      p, div, span {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+    }
+
+    /* Extra small screens (320px) */
+    @media (max-width: 320px) {
+      .container {
+        padding: 0 15px;
+        margin: 15px auto;
+      }
+      
+      .header {
+        padding: 25px 20px 20px;
+      }
+      
+      .intro {
+        padding: 20px;
+      }
+      
+      .content {
+        padding: 25px 20px;
+      }
+      
+      .lesson-block {
+        padding: 16px;
+      }
+      
+      .quote-block {
+        padding: 20px 16px;
+      }
+      
+      .tip-box {
+        padding: 16px;
+      }
+      
+      .closing-block {
+        padding: 35px 20px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <div class="header">
+      <img src="https://res.cloudinary.com/dnwh5mmhz/image/upload/v1753195357/Main-logo-wo-bg_m9mz2a.png" alt="Veritas Logo" />
+      <div class="newsletter-title">Veritas Speaking Digest</div>
+      <div class="header-subline">Your weekly dose of speaking brilliance</div>
+      <div class="header-tag">Vol. 1 • Issue 1 • July 2025</div>
+      <div class="header-quote">"The art of communication is the language of leadership."</div>
+    </div>
+
+    <!-- INTRO -->
+    <div class="intro">
+      Welcome to this week's edition! Get ready for actionable insights to elevate your speaking skills and boost your confidence, one tip at a time.
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+      <h2><span class="section-emoji">🍕</span>What Pizza Can Teach You About Public Speaking</h2>
+      <p>Imagine this: A room full of people, totally captivated — not by a celebrity, but by someone teaching how to make pizza. Yes, pizza.</p>
+      <p>Now think — if a cooking instructor can hold attention for three hours over dough and sauce, why do most presentations struggle to stay engaging for even five minutes?</p>
+      <p>There's a reason. And surprisingly, it's deeply connected to effective public speaking.</p>
+      <p>Here are <strong>3 simple, powerful lessons</strong> drawn from that pizza-making experience — each one a principle you can bring into your next speech, presentation, or even a casual discussion:</p>
+
+      <div class="lesson-block">
+        <div class="lesson-title"><span class="icon">🔹</span>1. Give Them Something They Can Use</div>
+        <p>People tune in when they see personal value in what you're saying.<br />
+        In the pizza class, everyone paid attention because they knew they'd be using that knowledge in minutes.</p>
+        <span class="value-highlight">In your speech:</span> Ask yourself — <i>"How can this help my audience today or tomorrow?"</i>
+      </div>
+
+      <div class="lesson-block">
+        <div class="lesson-title"><span class="icon">🔹</span>2. Involve Them — Don't Just Speak at Them</div>
+        <p>We learn better when we do, not just hear.<br />During the class, learners weren't just observing — they were making their own pizzas, step-by-step. That interaction builds memory and connection.</p>
+        <span class="value-highlight">In your speech:</span> Try:
+        <ul>
+          <li>A quick activity</li>
+          <li>A rhetorical question</li>
+          <li>A relatable story</li>
+        </ul>
+      </div>
+
+      <div class="lesson-block">
+        <div class="lesson-title"><span class="icon">🔹</span>3. Reveal the Common Mistakes</div>
+        <p>We all perk up when we hear <b>"What most people get wrong…"</b><br />
+        In the session, the instructor pointed out the most common pizza-making errors — those "Aha!" moments sparked curiosity and respect.</p>
+        <span class="value-highlight">In your speech:</span> Highlight:
+        <ul>
+          <li>Misconceptions</li>
+          <li>Popular myths</li>
+          <li>Typical beginner errors</li>
+        </ul>
+      </div>
+
+      <div class="recap-list">
+        <b><span class="recap-icon">🎯</span>Quick Recap:</b><br />
+        <span class="recap-icon">✅</span> Make it relevant<br />
+        <span class="recap-icon">✅</span> Make it interactive<br />
+        <span class="recap-icon">✅</span> Make it eye-opening
+      </div>
+
+      <p style="margin-top: 20px;">
+        The next time you speak — don't just deliver a monologue.<br />
+        <span class="value-highlight">Serve up value like a great pizza: hot, useful, and hard to forget.</span>
+      </p>
+    </div>
+
+    <!-- QUOTE BLOCK -->
+    <div class="quote-block">
+      "Tell me and I forget, teach me and I may remember, involve me and I learn."
+      <span class="quote-author">– Benjamin Franklin</span>
+    </div>
+
+    <!-- CTA PARAGRAPH -->
+    <div style="text-align: center;">
+      <a class="cta-btn" href="#">Try It in Your Next Speech</a>
+    </div>
+
+    <!-- TIP BOX -->
+    <div class="tip-box">
+      <span>&#9733;</span> Golden Rule: <b>Begin with the end in mind!</b> Know what you want your audience to walk away remembering.
+    </div>
+
+    <!-- Crafted By Signature -->
+    <div style="text-align: center; padding: 20px 30px 0;">
+      <p style="font-size: 14px; color: #9ca3af; margin: 0; font-family: 'Inter', Arial, sans-serif;">
+        Crafted with ❤️ by <strong>Nehansh Kesharwani</strong>
+      </p>
+    </div><br>
+
+    <!-- CLOSING BLOCK -->
+    <div class="closing-block">
+      <p class="final-quote">"Confidence is silent. Insecurity is loud."</p>
+      <p class="note">— End of Volume 1, Issue 1 —</p>
+    </div>
+
+  </div>
+</body>
+</html>
