@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veritas Speaking Digest – Vol. 1, Issue 9</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────────── */
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+      background:linear-gradient(135deg,#f0f9ff 0%,#e0f2fe 100%);
+      color:#1f2937;line-height:1.6;font-weight:400
+    }
+    img{max-width:100%;height:auto}
+
+    /* ─── Shell ───────────────────────────────────────────────────── */
+    .container{
+      max-width:700px;margin:50px auto;background:#fff;border-radius:20px;
+      box-shadow:0 25px 50px -12px rgba(0,0,0,.08),0 0 0 1px rgba(15,23,42,.04);
+      border:1px solid rgba(148,163,184,.1);overflow:hidden;
+      opacity:0;animation:fadeIn .8s ease-out forwards
+    }
+
+    /* ─── Animations ──────────────────────────────────────────────── */
+    @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes slideInLeft{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:translateX(0)}}
+    @keyframes slideInUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ─── Header ─────────────────────────────────────────────────── */
+    .header{
+      background:linear-gradient(135deg,#0f172a 0%,#1e293b 35%,#334155 100%);
+      color:#fff;text-align:center;padding:45px 30px 40px;position:relative;
+      animation:slideInUp .6s ease-out .2s backwards
+    }
+    .header::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:4px;
+      background:linear-gradient(90deg,#10b981,#059669,#047857)
+    }
+    .header img{width:110px;margin-bottom:20px;filter:brightness(1.1)}
+    .newsletter-title{font-family:'Poppins',sans-serif;font-size:32px;font-weight:700;margin-bottom:8px;letter-spacing:-.5px}
+    .header-subline{font-size:17px;font-style:italic;margin-bottom:20px;opacity:.85;color:#cbd5e1}
+    .header-tag{
+      display:inline-block;background:linear-gradient(135deg,#10b981,#059669);color:#fff;
+      font-size:13px;font-weight:600;padding:8px 18px;border-radius:50px;margin-bottom:16px;text-transform:uppercase;letter-spacing:.5px;
+      box-shadow:0 4px 14px rgba(16,185,129,.2)
+    }
+    .header-quote{
+      font-size:15px;font-style:italic;opacity:.75;margin-top:12px;color:#94a3b8
+    }
+
+    /* ─── Intro ──────────────────────────────────────────────────── */
+    .intro{
+      padding:40px;background:linear-gradient(135deg,#ecfdf5 0%,#d1fae5 100%);
+      font-size:18px;color:#047857;font-weight:500;line-height:1.7;border-bottom:3px solid #10b981;
+      animation:slideInLeft .6s ease-out .4s backwards
+    }
+
+    /* ─── Content Wrapper ───────────────────────────────────────── */
+    .content{padding:45px 40px;font-size:17px;color:#374151;}
+
+    .content h2{
+      font-family:'Poppins',sans-serif;font-size:26px;color:#1f2937;margin:0 0 24px;
+      display:flex;align-items:center;font-weight:600;letter-spacing:-.3px
+    }
+    .section-emoji{font-size:28px;margin-right:12px;flex-shrink:0}
+
+    /* ─── Blocks ────────────────────────────────────────────────── */
+    .section-block{
+      background:#fff;margin:32px 0;padding:28px;border-radius:16px;
+      box-shadow:0 4px 6px -1px rgba(0,0,0,.05),0 2px 4px -1px rgba(0,0,0,.03);
+      border:1px solid #f1f5f9;border-left:5px solid #10b981;
+      animation:slideInUp .6s ease-out backwards
+    }
+    .section-title{
+      font-family:'Poppins',sans-serif;font-weight:600;color:#1f2937;margin-bottom:16px;
+      display:flex;align-items:center;font-size:19px
+    }
+    .section-title .icon{margin-right:10px;font-size:20px;color:#10b981;flex-shrink:0}
+
+    /* Lists */
+    .reason-list,.fix-list,.challenge-steps{list-style:none;padding:0;margin:0}
+    .reason-item,.fix-item,.challenge-steps li{
+      margin:12px 0;padding-left:24px;position:relative;font-weight:500
+    }
+    .reason-item::before{content:"⚡";position:absolute;left:0}
+    .fix-item::before{content:"🛠️";position:absolute;left:0}
+    .challenge-steps li::before{content:"✅";position:absolute;left:0;font-size:14px;color:#d97706}
+
+    .highlight-text{
+      background:linear-gradient(135deg,#fef3c7,#fde68a);
+      color:#92400e;font-weight:600;padding:4px 12px;border-radius:8px;font-size:15px;display:inline-block
+    }
+
+    /* ─── Golden Point ──────────────────────────────────────────── */
+    .golden-rule{
+      background:linear-gradient(135deg,#ecfdf5 0%,#d1fae5 100%);
+      padding:28px;border-radius:16px;margin:40px 0;color:#047857;font-weight:600;font-size:18px;
+      border:2px solid #10b981;text-align:center;animation:slideInUp .6s ease-out 1s backwards
+    }
+
+    /* ─── Challenge ────────────────────────────────────────────── */
+    .challenge-box{
+      background:linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%);
+      margin:40px 0;padding:28px;border-radius:16px;color:#92400e;font-weight:500;font-size:16px;
+      border:1px solid #fed7aa;box-shadow:0 4px 6px -1px rgba(0,0,0,.05);
+      position:relative;animation:slideInUp .6s ease-out 1.2s backwards
+    }
+    .challenge-box::before{
+      content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
+      background:linear-gradient(180deg,#f59e0b,#d97706);border-radius:16px 0 0 16px
+    }
+    .challenge-title{font-family:'Poppins',sans-serif;font-weight:600;color:#92400e;margin-bottom:16px;font-size:18px}
+
+    /* ─── Quote Block ──────────────────────────────────────────── */
+    .quote-block{
+      background:linear-gradient(135deg,#1e293b 0%,#334155 100%);
+      color:#e2e8f0;padding:35px 40px;margin:50px 40px 40px;font-style:italic;border-radius:16px;position:relative;
+      box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04);
+      font-size:18px;line-height:1.6;animation:slideInUp .6s ease-out 1.4s backwards
+    }
+    .quote-block::after{
+      content:'';position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,#10b981,#059669);border-radius:16px 16px 0 0
+    }
+    .quote-block::before{
+      content:"\"";font-size:48px;position:absolute;left:20px;top:15px;color:#10b981;opacity:.3;font-family:'Poppins',sans-serif
+    }
+
+    /* ─── Footer / Closing ─────────────────────────────────────── */
+    .closing-block{
+      text-align:center;padding:60px 30px 70px;background:linear-gradient(135deg,#f8fafc 0%,#f1f5f9 100%);
+      border-top:1px solid #e2e8f0;position:relative;animation:slideInUp .6s ease-out 1.6s backwards
+    }
+    .closing-block::before{
+      content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+      width:80px;height:3px;background:linear-gradient(90deg,#10b981,#059669);border-radius:0 0 4px 4px
+    }
+    .final-quote{font-family:'Poppins',sans-serif;font-size:22px;font-weight:600;color:#1f2937;margin-bottom:16px;line-height:1.4}
+    .note{font-size:15px;color:#6b7280;font-style:italic}
+
+    /* ─── Mobile ≤ 480 px ──────────────────────────────────────── */
+    @media(max-width:480px){
+      /* Font hierarchy */
+      .newsletter-title{font-size:1.8rem;line-height:1.3}
+      .content h2,.section-title,.challenge-title,.final-quote{font-size:1.3rem;line-height:1.4}
+      p,li,.intro,.content,.golden-rule,.challenge-box,.quote-block,.section-block{font-size:1rem;line-height:1.6}
+
+      /* Layout */
+      .container{padding:0 20px;margin:20px auto;border-radius:16px}
+      .header{padding:30px 25px 25px}
+      .header img{width:80px;margin-bottom:15px}
+      .header-subline{font-size:.9rem;margin-bottom:16px}
+      .header-tag{font-size:.75rem;padding:6px 14px}
+      .header-quote{font-size:.85rem}
+
+      .intro{padding:25px}
+      .content{padding:30px 25px}
+      .section-emoji{font-size:1.2rem;margin-right:8px}
+      .section-block{padding:20px;margin:24px 0;border-radius:12px}
+      .highlight-text{font-size:.9rem;padding:3px 10px}
+
+      .quote-block{margin:25px 0;padding:25px 20px;border-radius:12px;font-size:1rem}
+      .challenge-box{margin:25px 0;padding:20px;border-radius:12px;font-size:1rem}
+      .closing-block{padding:40px 25px 50px}
+      .note{font-size:.9rem}
+      p,div,span{word-wrap:break-word;overflow-wrap:break-word}
+    }
+
+    /* ─── XS ≤ 320 px ─────────────────────────────────────────── */
+    @media(max-width:320px){
+      .container{padding:0 15px;margin:15px auto}
+      .header{padding:25px 20px 20px}
+      .intro{padding:20px}
+      .content{padding:25px 20px}
+      .section-block,.challenge-box{padding:16px}
+      .quote-block{padding:20px 16px}
+      .closing-block{padding:35px 20px 40px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <div class="header">
+      <img src="https://res.cloudinary.com/dnwh5mmhz/image/upload/v1753195357/Main-logo-wo-bg_m9mz2a.png" alt="Veritas Logo"/>
+      <div class="newsletter-title">Veritas Speaking Digest</div>
+      <div class="header-subline">Your weekly dose of speaking brilliance</div>
+      <div class="header-tag">Vol. 1 • Issue 9 • September 2025</div>
+      <div class="header-quote">"Every pause you master removes an 'umm' you don't need."</div>
+    </div>
+
+    <!-- INTRO -->
+    <div class="intro">
+      <p><strong>Welcome to this week's edition!</strong> In this issue, we explore a subtle habit that silently damages your clarity every time you speak. This tiny habit, when left unnoticed, becomes the reason most people sound unsure, unpolished, and even unprepared.</p>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+      <h2><span class="section-emoji">🧠</span>“Umm… Like… You Know?” – The Hidden Cost of Filler Words</h2>
+
+      <!-- Opening -->
+      <div class="section-block">
+        <div class="section-title"><span class="icon">🗣️</span>Umm… Like… You Know?</div>
+        <p>Have you ever said something like this?<br>
+        “So… umm… I was, like, thinking that we could, you know… maybe try a different… uh… approach?”</p>
+        <p>If yes, you're not alone.<br>If no — you probably didn’t notice yourself doing it.</p>
+        <p>Most of us use filler words unconsciously. We say <em>uh, um, like, you know, actually, basically, literally</em> — not to communicate, but to fill silence.</p>
+        <p>But here’s the thing: <span class="highlight-text">Every filler word weakens your authority — just a little bit.</span><br>And over time, those “little bits” add up.</p>
+      </div>
+
+      <!-- Why We Use Filler Words -->
+      <div class="section-block">
+        <div class="section-title"><span class="icon">🎯</span>Why We Use Filler Words</div>
+        <ul class="reason-list">
+          <li class="reason-item"><strong>Fear of Silence</strong><br>Silence feels awkward, so we rush to fill it.</li>
+          <li class="reason-item"><strong>Processing Thoughts</strong><br>Our brain hasn’t caught up to our mouth, so we buy time using “um” and “like.”</li>
+          <li class="reason-item"><strong>Lack of Awareness</strong><br>Most people don’t even realize they’re using fillers — until they hear themselves recorded.</li>
+        </ul>
+      </div>
+
+      <!-- Fix Section -->
+      <div class="section-block">
+        <div class="section-title"><span class="icon">🛠️</span>How to Fix It</div>
+        <ul class="fix-list">
+          <li class="fix-item"><strong>1. Record Yourself</strong><br>Yes, again. Awareness begins with observation. Record a 1-minute explanation of anything — and play it back. Count the filler words.</li>
+          <li class="fix-item"><strong>2. Replace Fillers with Pauses</strong><br>Instead of saying, “So um… let me explain this again…”, try: “So… let me explain this again.” That one-second pause is your new super-power.</li>
+          <li class="fix-item"><strong>3. Practice the “Slow Start” Drill</strong><br>Before any speech or presentation, take 5 slow deep breaths. Then start slowly and clearly — pace is everything.</li>
+        </ul>
+      </div>
+
+      <!-- Golden Rule -->
+      <div class="golden-rule">
+        <strong>💡 Golden Point:</strong> Every time you pause instead of saying “umm,” you sound 10× more confident.
+      </div>
+
+      <!-- Challenge -->
+      <div class="challenge-box">
+        <div class="challenge-title">🔁 Challenge of the Week</div>
+        <p><strong>Record a 1-minute answer to this prompt:</strong><br>“Why is communication important in my field?”</p>
+        <ul class="challenge-steps">
+          <li>Count how many fillers you used</li>
+          <li>Try again, consciously removing them</li>
+        </ul>
+        <p><strong>🎯 Goal:</strong> Reduce your filler count by 50 % between both takes.</p>
+      </div>
+    </div>
+
+    <!-- CLOSING QUOTE -->
+    <div class="quote-block">
+      “The right word may be effective, but no word was ever as effective as a rightly timed pause.” — Mark Twain
+    </div>
+
+    <!-- Crafted By Signature -->
+    <div style="text-align:center;padding:20px 30px 0;">
+      <p style="font-size:14px;color:#9ca3af;margin:0;font-family:'Inter',Arial,sans-serif">
+        Crafted with ❤️ by <strong>Nehansh Kesharwani</strong>
+      </p>
+    </div><br>
+
+    <!-- FOOTER -->
+    <div class="closing-block">
+      <p class="final-quote">See you next week!</p>
+      <p class="note">— End of Volume 1, Issue 9 —</p>
+    </div>
+  </div>
+</body>
+</html>
