@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veritas Speaking Digest – Vol. 1, Issue 3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      color: #1f2937;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.04);
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 35%, #334155 100%);
+      color: white;
+      text-align: center;
+      padding: 45px 30px 40px;
+      position: relative;
+      animation: slideInUp 0.6s ease-out 0.2s backwards;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #10b981, #059669, #047857);
+    }
+    
+    .header img {
+      width: 110px;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      filter: brightness(1.1);
+    }
+    
+    .newsletter-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    
+    .header-subline {
+      font-size: 17px;
+      font-style: italic;
+      margin-bottom: 20px;
+      opacity: 0.85;
+      color: #cbd5e1;
+    }
+    
+    .header-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.2);
+    }
+    
+    .header-quote {
+      font-size: 15px;
+      font-style: italic;
+      opacity: 0.75;
+      margin-top: 12px;
+      color: #94a3b8;
+    }
+    
+    .intro {
+      padding: 40px;
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      font-size: 18px;
+      color: #047857;
+      font-weight: 500;
+      line-height: 1.7;
+      border-bottom: 3px solid #10b981;
+      animation: slideInLeft 0.6s ease-out 0.4s backwards;
+    }
+    
+    .content {
+      padding: 45px 40px;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #374151;
+      font-weight: 400;
+    }
+    
+    .content h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 26px;
+      color: #1f2937;
+      margin-top: 0;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      animation: slideInLeft 0.6s ease-out 0.6s backwards;
+    }
+    
+    .section-emoji {
+      font-size: 28px;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    
+    .section-block {
+      background: #ffffff;
+      margin: 32px 0;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      border: 1px solid #f1f5f9;
+      border-left: 5px solid #10b981;
+      animation: slideInUp 0.6s ease-out backwards;
+    }
+    
+    .section-block:nth-child(even) {
+      animation-delay: 0.8s;
+    }
+    
+    .section-block:nth-child(odd) {
+      animation-delay: 1s;
+    }
+    
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      font-size: 19px;
+      letter-spacing: -0.2px;
+    }
+    
+    .section-title .icon {
+      margin-right: 10px;
+      font-size: 20px;
+      color: #10b981;
+      flex-shrink: 0;
+    }
+    
+    .highlight-text {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      color: #92400e;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 15px;
+      display: inline-block;
+      margin: 2px 0;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+    
+    .technique-list {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      padding: 20px 24px;
+      border-radius: 12px;
+      margin: 20px 0;
+      border: 2px dashed #cbd5e1;
+    }
+    
+    .technique-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .technique-list li {
+      margin: 12px 0;
+      padding-left: 24px;
+      position: relative;
+      color: #374151;
+      font-weight: 500;
+    }
+    
+    .technique-list li::before {
+      content: "💡";
+      position: absolute;
+      left: 0;
+      font-size: 16px;
+    }
+    
+    .challenge-box {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      margin: 40px 0;
+      padding: 28px;
+      border-radius: 16px;
+      color: #92400e;
+      font-weight: 500;
+      font-size: 16px;
+      border: 1px solid #fed7aa;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      position: relative;
+      animation: slideInUp 0.6s ease-out 1.2s backwards;
+    }
+    
+    .challenge-box::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, #f59e0b, #d97706);
+      border-radius: 16px 0 0 16px;
+    }
+    
+    .challenge-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #92400e;
+      margin-bottom: 16px;
+      font-size: 18px;
+    }
+    
+    .quote-block {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: #e2e8f0;
+      padding: 35px 40px;
+      margin: 50px 40px 40px;
+      font-style: italic;
+      border-radius: 16px;
+      position: relative;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      font-size: 18px;
+      line-height: 1.6;
+      animation: slideInUp 0.6s ease-out 1.4s backwards;
+    }
+
+    .quote-block::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #10b981, #059669);
+      border-radius: 16px 16px 0 0;
+    }
+    
+    .golden-rule {
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      padding: 24px 28px;
+      border-radius: 12px;
+      margin: 32px 0;
+      color: #047857;
+      font-weight: 600;
+      font-size: 17px;
+      border: 2px solid #10b981;
+      text-align: center;
+      animation: slideInUp 0.6s ease-out 1s backwards;
+    }
+    
+    .closing-block {
+      text-align: center;
+      padding: 60px 30px 70px;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border-top: 1px solid #e2e8f0;
+      position: relative;
+      animation: slideInUp 0.6s ease-out 1.6s backwards;
+    }
+    
+    .closing-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #10b981, #059669);
+      border-radius: 0 0 4px 4px;
+    }
+    
+    .closing-block p {
+      margin: 12px 0;
+    }
+    
+    .closing-block .final-quote {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    
+    .closing-block .note {
+      font-size: 15px;
+      color: #6b7280;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    /* Responsive Images */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Mobile Responsive Styles - Following exact specifications */
+    @media (max-width: 480px) {
+      /* Main title (h1 equivalent) */
+      .newsletter-title {
+        font-size: 1.8rem;
+        line-height: 1.3;
+      }
+      
+      /* Subheadings (h2, h3 equivalent) */
+      .content h2,
+      .section-title,
+      .challenge-title,
+      .closing-block .final-quote {
+        font-size: 1.3rem;
+        line-height: 1.4;
+      }
+      
+      /* Body text and lists */
+      p, 
+      li,
+      .content,
+      .intro,
+      .quote-block,
+      .challenge-box,
+      .golden-rule,
+      .technique-list {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      /* Container padding as requested */
+      .container {
+        padding: 0 20px;
+        margin: 20px auto;
+        border-radius: 16px;
+      }
+      
+      /* Enhanced mobile spacing and readability */
+      .header {
+        padding: 30px 25px 25px;
+      }
+      
+      .header img {
+        width: 80px;
+        margin-bottom: 15px;
+      }
+      
+      .header-subline {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 16px;
+      }
+      
+      .header-tag {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+      }
+      
+      .header-quote {
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+      
+      .intro {
+        padding: 25px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .content {
+        padding: 30px 25px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .section-emoji {
+        font-size: 1.2rem;
+        margin-right: 8px;
+      }
+      
+      .section-block {
+        margin: 24px 0;
+        padding: 20px;
+        border-radius: 12px;
+      }
+      
+      .section-title .icon {
+        font-size: 1.1rem;
+        margin-right: 8px;
+      }
+      
+      .highlight-text {
+        font-size: 0.9rem;
+        padding: 3px 10px;
+        word-break: break-word;
+        display: inline;
+      }
+      
+      .technique-list {
+        padding: 16px 20px;
+        margin: 16px 0;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .technique-list li {
+        margin: 10px 0;
+        padding-left: 20px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .golden-rule {
+        padding: 20px;
+        margin: 24px 0;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .quote-block {
+        margin: 25px 0;
+        padding: 25px 20px;
+        font-size: 1rem;
+        line-height: 1.6;
+        border-radius: 12px;
+      }
+      
+      .challenge-box {
+        margin: 25px 0;
+        padding: 20px;
+        font-size: 1rem;
+        line-height: 1.6;
+        border-radius: 12px;
+      }
+      
+      .closing-block {
+        padding: 40px 25px 50px;
+      }
+      
+      .closing-block .note {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+      
+      /* List spacing in challenge box */
+      .challenge-box ul {
+        margin: 16px 0;
+        padding-left: 20px;
+      }
+      
+      .challenge-box li {
+        margin-bottom: 12px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      /* Prevent text overflow */
+      p, div, span {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+    }
+
+    /* Extra small screens (320px) */
+    @media (max-width: 320px) {
+      .container {
+        padding: 0 15px;
+        margin: 15px auto;
+      }
+      
+      .header {
+        padding: 25px 20px 20px;
+      }
+      
+      .intro {
+        padding: 20px;
+      }
+      
+      .content {
+        padding: 25px 20px;
+      }
+      
+      .section-block {
+        padding: 16px;
+      }
+      
+      .quote-block {
+        padding: 20px 16px;
+      }
+      
+      .challenge-box {
+        padding: 16px;
+      }
+      
+      .golden-rule {
+        padding: 16px;
+      }
+      
+      .technique-list {
+        padding: 16px;
+      }
+      
+      .closing-block {
+        padding: 35px 20px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <div class="header">
+      <img src="https://res.cloudinary.com/dnwh5mmhz/image/upload/v1753195357/Main-logo-wo-bg_m9mz2a.png" alt="Veritas Logo" />
+      <div class="newsletter-title">Veritas Speaking Digest</div>
+      <div class="header-subline">Your weekly dose of speaking brilliance</div>
+      <div class="header-tag">Vol. 1 • Issue 3 • August 2025</div>
+      <div class="header-quote">"Commanding attention isn't about volume. It's about involvement."</div>
+    </div>
+
+    <!-- INTRO -->
+    <div class="intro">
+      Welcome to this week's edition! Discover how to truly connect with your audience and own any room you speak in, one technique at a time.
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+      <h2><span class="section-emoji">🎤</span>How to 'Own the Room' When You Speak</h2>
+
+      <div class="section-block">
+        <div class="section-title"><span class="icon">👥</span>What Does "Owning the Room" Even Mean?</div>
+        <p>We've all heard it: "They really owned the room."</p>
+        <p>But what does that actually mean?</p>
+        <p>Owning the room means making people feel like you're fully present — so much so that they don't want to look away. It's not about ego or domination. <span class="highlight-text">It's about genuine connection and complete attention.</span></p>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title"><span class="icon">🎯</span>The True Indicator of a Great Speaker</div>
+        <p>One of the strongest skills in public speaking isn't vocabulary or stage presence — it's the ability to make people feel involved.</p>
+        <p>When an audience feels that the speaker is only there to "get through the slides," they mentally check out.</p>
+        <p>But when the speaker makes the audience feel seen, everything changes.</p>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title"><span class="icon">🧩</span>How to Involve the Audience</div>
+        <p>Want to instantly boost engagement? Start by involving your listeners.</p>
+        <p>Here are a few simple techniques:</p>
+        <div class="technique-list">
+          <ul>
+            <li>"Raise your hand if this sounds familiar…"</li>
+            <li>"Nod your head if you've ever experienced this…"</li>
+            <li>"You might be wondering what I did next…"</li>
+            <li>"What would you do in that situation?"</li>
+          </ul>
+        </div>
+        <p>Even a small gesture, a direct question, or a moment of eye contact can create this shift.</p>
+      </div>
+
+      <div class="golden-rule">
+        <strong>🧠 Golden Rule:</strong> If you want attention, invite participation.
+      </div>
+
+      <div class="section-block">
+        <div class="section-title"><span class="icon">🪄</span>Little Things That Make a Big Difference</div>
+        <p>Some speakers even walk into the audience and ask questions live.</p>
+        <p>Others use small activities, rhetorical questions, or real-time responses to keep things alive.</p>
+        <p>Whether it's in a classroom, at a company event, or during a college fest — <span class="highlight-text">audiences remember how involved they felt, not just what they heard.</span></p>
+      </div>
+
+      <div class="challenge-box">
+        <div class="challenge-title">🧪 Challenge of the Week</div>
+        <p>Try one of these involvement techniques in your next presentation, JAM, or classroom discussion:</p>
+        <ul style="margin: 16px 0; padding-left: 20px;">
+          <li>Ask a simple "yes or no" question</li>
+          <li>Invite someone to share a one-line thought</li>
+          <li>Use a story and pause with, "What do you think I did next?"</li>
+        </ul>
+        <p>Even if it's small, it builds the habit of bringing your audience with you.</p>
+      </div>
+    </div>
+
+    <!-- MID-ISSUE QUOTE BLOCK -->
+    <div class="quote-block">
+      "The most engaging speaker is the one who speaks with, not just to."
+    </div>
+
+    <!-- Crafted By Signature -->
+    <div style="text-align: center; padding: 20px 30px 0;">
+    <p style="font-size: 14px; color: #9ca3af; margin: 0; font-family: 'Inter', Arial, sans-serif;">
+        Crafted with ❤️ by <strong>Nehansh Kesharwani</strong>
+    </p>
+    </div><br>
+
+    <!-- CLOSING BLOCK -->
+    <div class="closing-block">
+      <p class="final-quote">"A good talk informs. A great one involves."</p>
+      <p class="note">— End of Volume 1, Issue 3 —</p>
+    </div>
+  </div>
+</body>
+</html>
