@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veritas Speaking Digest – Vol. 1, Issue 8</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+      color: #1f2937;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.04);
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      opacity: 0;
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 35%, #334155 100%);
+      color: white;
+      text-align: center;
+      padding: 45px 30px 40px;
+      position: relative;
+      animation: slideInUp 0.6s ease-out 0.2s backwards;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #10b981, #059669, #047857);
+    }
+    
+    .header img {
+      width: 110px;
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      filter: brightness(1.1);
+    }
+    
+    .newsletter-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+    
+    .header-subline {
+      font-size: 17px;
+      font-style: italic;
+      margin-bottom: 20px;
+      opacity: 0.85;
+      color: #cbd5e1;
+    }
+    
+    .header-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.2);
+    }
+    
+    .header-quote {
+      font-size: 15px;
+      font-style: italic;
+      opacity: 0.75;
+      margin-top: 12px;
+      color: #94a3b8;
+    }
+    
+    .intro {
+      padding: 40px;
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      font-size: 18px;
+      color: #047857;
+      font-weight: 500;
+      line-height: 1.7;
+      border-bottom: 3px solid #10b981;
+      animation: slideInLeft 0.6s ease-out 0.4s backwards;
+    }
+    
+    .content {
+      padding: 45px 40px;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #374151;
+      font-weight: 400;
+    }
+    
+    .content h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 26px;
+      color: #1f2937;
+      margin-top: 0;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      animation: slideInLeft 0.6s ease-out 0.6s backwards;
+    }
+    
+    .content h2 .subtitle {
+      font-size: 18px;
+      color: #6b7280;
+      font-weight: 400;
+      font-style: italic;
+      display: block;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    
+    .section-emoji {
+      font-size: 28px;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    
+    .section-block {
+      background: #ffffff;
+      margin: 32px 0;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      border: 1px solid #f1f5f9;
+      border-left: 5px solid #10b981;
+      animation: slideInUp 0.6s ease-out backwards;
+    }
+    
+    .section-block:nth-child(even) {
+      animation-delay: 0.8s;
+    }
+    
+    .section-block:nth-child(odd) {
+      animation-delay: 1s;
+    }
+    
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      font-size: 19px;
+      letter-spacing: -0.2px;
+    }
+    
+    .section-title .icon {
+      margin-right: 10px;
+      font-size: 20px;
+      color: #10b981;
+      flex-shrink: 0;
+    }
+    
+    .highlight-text {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      color: #92400e;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 15px;
+      display: inline-block;
+      margin: 2px 0;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    }
+    
+    .analogy-section {
+      background: linear-gradient(135deg, #fef7ff 0%, #fdf4ff 100%);
+      padding: 28px;
+      border-radius: 16px;
+      margin: 32px 0;
+      border: 2px solid #a855f7;
+    }
+    
+    .analogy-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #7c3aed;
+      margin-bottom: 16px;
+      font-size: 19px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .instrument-skills {
+      background: rgba(255, 255, 255, 0.7);
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin: 16px 0;
+      border: 2px dashed #d8b4fe;
+    }
+    
+    .instrument-skills ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .instrument-skills li {
+      margin: 8px 0;
+      padding-left: 24px;
+      position: relative;
+      color: #6b46c1;
+      font-weight: 500;
+    }
+    
+    .instrument-skills li::before {
+      content: "🎵";
+      position: absolute;
+      left: 0;
+      font-size: 16px;
+    }
+    
+    .power-statement {
+      background: linear-gradient(135deg, #065f46, #047857);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 24px 0;
+      text-align: center;
+      font-weight: 600;
+      font-size: 16px;
+    }
+    
+    .pause-uses {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      padding: 20px 24px;
+      border-radius: 12px;
+      margin: 20px 0;
+      border: 2px dashed #cbd5e1;
+    }
+    
+    .pause-uses ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .pause-uses li {
+      margin: 12px 0;
+      padding-left: 24px;
+      position: relative;
+      color: #374151;
+      font-weight: 500;
+    }
+    
+    .pause-uses li::before {
+      content: "⏸️";
+      position: absolute;
+      left: 0;
+      font-size: 16px;
+    }
+    
+    .technique-section {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      padding: 28px;
+      border-radius: 16px;
+      margin: 32px 0;
+      border: 2px solid #10b981;
+    }
+    
+    .technique-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #047857;
+      margin-bottom: 20px;
+      font-size: 19px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .pause-example {
+      background: rgba(255, 255, 255, 0.7);
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin: 16px 0;
+      border-left: 4px solid #059669;
+    }
+    
+    .pause-example .example-title {
+      font-weight: 600;
+      color: #047857;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+    
+    .pause-example .example-text {
+      color: #374151;
+      font-style: italic;
+      font-size: 15px;
+    }
+    
+    .pause-notation {
+      color: #10b981;
+      font-weight: 600;
+      background: rgba(16, 185, 129, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    
+    .challenge-box {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+      margin: 40px 0;
+      padding: 28px;
+      border-radius: 16px;
+      color: #92400e;
+      font-weight: 500;
+      font-size: 16px;
+      border: 1px solid #fed7aa;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      position: relative;
+      animation: slideInUp 0.6s ease-out 1.4s backwards;
+    }
+    
+    .challenge-box::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, #f59e0b, #d97706);
+      border-radius: 16px 0 0 16px;
+    }
+    
+    .challenge-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: #92400e;
+      margin-bottom: 16px;
+      font-size: 18px;
+    }
+    
+    .challenge-rule {
+      background: rgba(255, 255, 255, 0.7);
+      padding: 16px;
+      border-radius: 8px;
+      margin: 16px 0;
+      text-align: center;
+      font-weight: 600;
+    }
+    
+    .challenge-questions {
+      background: rgba(255, 255, 255, 0.5);
+      padding: 16px;
+      border-radius: 8px;
+      margin: 16px 0;
+    }
+    
+    .challenge-questions ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .challenge-questions li {
+      margin: 8px 0;
+      padding-left: 24px;
+      position: relative;
+    }
+    
+    .challenge-questions li::before {
+      content: "❓";
+      position: absolute;
+      left: 0;
+      font-size: 14px;
+    }
+    
+    .golden-rule {
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+      padding: 28px;
+      border-radius: 16px;
+      margin: 40px 0;
+      color: #047857;
+      font-weight: 600;
+      font-size: 18px;
+      border: 2px solid #10b981;
+      text-align: center;
+      animation: slideInUp 0.6s ease-out 1.2s backwards;
+    }
+    
+    .quote-block {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: #e2e8f0;
+      padding: 35px 40px;
+      margin: 50px 40px 40px;
+      font-style: italic;
+      border-radius: 16px;
+      position: relative;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      font-size: 18px;
+      line-height: 1.6;
+      animation: slideInUp 0.6s ease-out 1.6s backwards;
+    }
+    
+    .quote-block::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #10b981, #059669);
+      border-radius: 16px 16px 0 0;
+    }
+    
+    .closing-block {
+      text-align: center;
+      padding: 60px 30px 70px;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border-top: 1px solid #e2e8f0;
+      position: relative;
+      animation: slideInUp 0.6s ease-out 1.8s backwards;
+    }
+    
+    .closing-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #10b981, #059669);
+      border-radius: 0 0 4px 4px;
+    }
+    
+    .closing-block p {
+      margin: 12px 0;
+    }
+    
+    .closing-block .final-quote {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    
+    .closing-block .note {
+      font-size: 15px;
+      color: #6b7280;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    /* Responsive Images */
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Mobile Responsive Styles - Following exact specifications */
+    @media (max-width: 480px) {
+      /* Main title (h1 equivalent) */
+      .newsletter-title {
+        font-size: 1.8rem;
+        line-height: 1.3;
+      }
+      
+      /* Subheadings (h2, h3 equivalent) */
+      .content h2,
+      .section-title,
+      .challenge-title,
+      .analogy-title,
+      .technique-title,
+      .example-title,
+      .closing-block .final-quote {
+        font-size: 1.3rem;
+        line-height: 1.4;
+      }
+      
+      /* Body text and lists */
+      p, 
+      li,
+      .content,
+      .intro,
+      .quote-block,
+      .challenge-box,
+      .golden-rule,
+      .section-block,
+      .analogy-section,
+      .instrument-skills,
+      .power-statement,
+      .pause-uses,
+      .technique-section,
+      .pause-example,
+      .challenge-rule,
+      .challenge-questions {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      /* Container padding as requested */
+      .container {
+        padding: 0 20px;
+        margin: 20px auto;
+        border-radius: 16px;
+      }
+      
+      /* Enhanced mobile spacing and readability */
+      .header {
+        padding: 30px 25px 25px;
+      }
+      
+      .header img {
+        width: 80px;
+        margin-bottom: 15px;
+      }
+      
+      .header-subline {
+        font-size: 0.9rem;
+        line-height: 1.4;
+        margin-bottom: 16px;
+      }
+      
+      .header-tag {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+      }
+      
+      .header-quote {
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+      
+      .intro {
+        padding: 25px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .content {
+        padding: 30px 25px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .content h2 .subtitle {
+        font-size: 1rem;
+        margin-top: 8px;
+        line-height: 1.4;
+      }
+      
+      .section-emoji {
+        font-size: 1.2rem;
+        margin-right: 8px;
+      }
+      
+      .section-block {
+        margin: 24px 0;
+        padding: 20px;
+        border-radius: 12px;
+      }
+      
+      .section-title .icon {
+        font-size: 1.1rem;
+        margin-right: 8px;
+      }
+      
+      .highlight-text {
+        font-size: 0.9rem;
+        padding: 3px 10px;
+        word-break: break-word;
+        display: inline;
+      }
+      
+      .analogy-section {
+        padding: 20px;
+        margin: 24px 0;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .instrument-skills {
+        padding: 14px 16px;
+        margin: 14px 0;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .instrument-skills li {
+        margin: 6px 0;
+        padding-left: 20px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .power-statement {
+        padding: 16px;
+        margin: 20px 0;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+      
+      .pause-uses {
+        padding: 16px 20px;
+        margin: 16px 0;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .pause-uses li {
+        margin: 10px 0;
+        padding-left: 20px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .technique-section {
+        padding: 20px;
+        margin: 24px 0;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .pause-example {
+        padding: 14px 16px;
+        margin: 14px 0;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .pause-example .example-title {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+      }
+      
+      .pause-example .example-text {
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+      
+      .golden-rule {
+        padding: 20px;
+        margin: 24px 0;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .quote-block {
+        margin: 25px 0;
+        padding: 25px 20px;
+        font-size: 1rem;
+        line-height: 1.6;
+        border-radius: 12px;
+      }
+      
+      .challenge-box {
+        margin: 25px 0;
+        padding: 20px;
+        font-size: 1rem;
+        line-height: 1.6;
+        border-radius: 12px;
+      }
+      
+      .challenge-rule {
+        padding: 14px;
+        margin: 14px 0;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .challenge-questions {
+        padding: 14px;
+        margin: 14px 0;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .challenge-questions li {
+        margin: 6px 0;
+        padding-left: 20px;
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .closing-block {
+        padding: 40px 25px 50px;
+      }
+      
+      .closing-block .note {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+      
+      /* Prevent text overflow */
+      p, div, span {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+    }
+
+    /* Extra small screens (320px) */
+    @media (max-width: 320px) {
+      .container {
+        padding: 0 15px;
+        margin: 15px auto;
+      }
+      
+      .header {
+        padding: 25px 20px 20px;
+      }
+      
+      .intro {
+        padding: 20px;
+      }
+      
+      .content {
+        padding: 25px 20px;
+      }
+      
+      .section-block {
+        padding: 16px;
+      }
+      
+      .analogy-section {
+        padding: 16px;
+      }
+      
+      .instrument-skills {
+        padding: 12px;
+      }
+      
+      .power-statement {
+        padding: 14px;
+      }
+      
+      .pause-uses {
+        padding: 16px;
+      }
+      
+      .technique-section {
+        padding: 16px;
+      }
+      
+      .pause-example {
+        padding: 12px;
+      }
+      
+      .quote-block {
+        padding: 20px 16px;
+      }
+      
+      .challenge-box {
+        padding: 16px;
+      }
+      
+      .challenge-rule,
+      .challenge-questions {
+        padding: 12px;
+      }
+      
+      .golden-rule {
+        padding: 16px;
+      }
+      
+      .closing-block {
+        padding: 35px 20px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <div class="header">
+      <img src="https://res.cloudinary.com/dnwh5mmhz/image/upload/v1753195357/Main-logo-wo-bg_m9mz2a.png" alt="Veritas Logo" />
+      <div class="newsletter-title">Veritas Speaking Digest</div>
+      <div class="header-subline">Your weekly dose of speaking brilliance</div>
+      <div class="header-tag">Vol. 1 • Issue 8 • September 2025</div>
+      <div class="header-quote">"Silence is the pause that gives power to speech."</div>
+    </div>
+
+    <!-- INTRO -->
+    <div class="intro">
+      Welcome to this week's edition! Discover why the space between your words might be more important than the words themselves.
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+      <h2>
+        <span class="section-emoji">🎧</span>
+        <div>
+          "Why Your Voice Needs to Breathe"
+          <span class="subtitle">(And why public speaking is like playing a wind instrument)</span>
+        </div>
+      </h2>
+
+      <div class="analogy-section">
+        <div class="analogy-title"><span class="icon">🎷</span>The Wind Instrument Analogy:</div>
+        <p><strong>You are not just a speaker — you're a human saxophone.</strong></p>
+        <p>Instruments like the flute, saxophone, or even a bansuri don't make sound unless there's controlled breathing.</p>
+        <p>The musician isn't just blowing air — they're mastering:</p>
+        <div class="instrument-skills">
+          <ul>
+            <li>Pace</li>
+            <li>Pause</li>
+            <li>Pressure</li>
+            <li>Flow</li>
+          </ul>
+        </div>
+        <div class="power-statement">
+          Public speaking works exactly the same way.
+        </div>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title"><span class="icon">💨</span>Why Pauses Are Power</div>
+        <p>Here's what most speakers miss:</p>
+        <p><span class="highlight-text">They think fluency is about never stopping.</span></p>
+        <p>But the best speakers breathe on purpose.<br/>
+        They pause intentionally.<br/>
+        They let ideas land like notes in a melody.</p>
+      </div>
+
+      <div class="section-block">
+        <div class="section-title"><span class="icon">🎯</span>The Secret Skill: Intentional Silence</div>
+        <p>Every good speaker knows what to say.</p>
+        <p><strong>Great speakers know when not to say it.</strong></p>
+        <p>Use pauses for:</p>
+        <div class="pause-uses">
+          <ul>
+            <li>Letting important ideas settle</li>
+            <li>Building anticipation before a punchline</li>
+            <li>Giving yourself space to breathe and reset</li>
+          </ul>
+        </div>
+        <p><span class="highlight-text">Without silence, your words blur into noise.</span></p>
+      </div>
+
+      <div class="technique-section">
+        <div class="technique-title"><span class="icon">🔍</span>Try This: The 3-Pause Technique</div>
+        
+        <div class="pause-example">
+          <div class="example-title">Pause After You Start</div>
+          <div class="example-text">Example: "You're here today… <span class="pause-notation">(pause)</span> …because you want to be heard."</div>
+        </div>
+        
+        <div class="pause-example">
+          <div class="example-title">Pause Before the Power Point</div>
+          <div class="example-text">"There's one thing… <span class="pause-notation">(pause)</span>… that will change how you speak forever."</div>
+        </div>
+        
+        <div class="pause-example">
+          <div class="example-title">Pause When You Feel Rushed</div>
+          <div class="example-text">Let the silence reset you and calm the pace.</div>
+        </div>
+      </div>
+
+      <div class="golden-rule">
+        <strong>🧠 Golden Point:</strong> Silence doesn't break a speech — it builds one.
+      </div>
+
+      <div class="challenge-box">
+        <div class="challenge-title">🧪 Challenge of the Week</div>
+        <p><strong>🎙️ Record a 1-minute video of yourself speaking on any topic.</strong></p>
+        <p>But here's the rule:</p>
+        <div class="challenge-rule">
+          👉 Insert at least three intentional pauses — short silences to let ideas land.
+        </div>
+        <p><strong>Rewatch and ask:</strong></p>
+        <div class="challenge-questions">
+          <ul>
+            <li>Did the message feel more powerful?</li>
+            <li>Did the silence help or hurt?</li>
+          </ul>
+        </div>
+        <p><strong>Then send it to someone and ask them the same. You'll be surprised.</strong></p>
+      </div>
+    </div>
+
+    <!-- MID-ISSUE QUOTE BLOCK -->
+    <div class="quote-block">
+      "In music, silence is just as important as sound. In speech, it's the same."
+    </div>
+
+    <!-- Crafted By Signature -->
+    <div style="text-align: center; padding: 20px 30px 0;">
+    <p style="font-size: 14px; color: #9ca3af; margin: 0; font-family: 'Inter', Arial, sans-serif;">
+        Crafted with ❤️ by <strong>Nehansh Kesharwani</strong>
+    </p>
+    </div><br>
+
+    <!-- CLOSING BLOCK -->
+    <div class="closing-block">
+      <p class="final-quote">"The most powerful words are often spoken… right after a pause."</p>
+      <p class="note">— End of Volume 1, Issue 8 —</p>
+    </div>
+  </div>
+</body>
+</html>
