@@ -63,11 +63,6 @@
       }
     }
     
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
     @keyframes slideInLeft {
       from { 
         opacity: 0; 
@@ -106,14 +101,9 @@
       100% { background-position: 200% 0; }
     }
     
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
-    }
-    
-    @keyframes recordingPulse {
-      0%, 100% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.1); opacity: 1; }
+    @keyframes observeEye {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+      50% { transform: scale(1.05) rotate(-2deg); opacity: 1; }
     }
     
     .header {
@@ -151,8 +141,6 @@
     
     .header img {
       width: 120px;
-      max-width: 100%;
-      height: auto;
       margin-bottom: 24px;
       filter: brightness(1.1) drop-shadow(0 4px 8px rgba(16, 185, 129, 0.2));
       transition: transform 0.3s ease;
@@ -226,6 +214,21 @@
       z-index: 2;
     }
     
+    .opening-quote {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: #e2e8f0;
+      padding: 32px 40px;
+      margin: 0;
+      font-style: italic;
+      font-size: 22px;
+      line-height: 1.5;
+      text-align: center;
+      font-weight: 600;
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s backwards;
+      overflow: hidden;
+      border-bottom: 4px solid #10b981;
+    }
+    
     .intro {
       padding: 45px 40px;
       background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #ecfdf5 100%);
@@ -234,7 +237,7 @@
       font-weight: 500;
       line-height: 1.7;
       border-bottom: 4px solid #10b981;
-      animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s backwards;
+      animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s backwards;
       position: relative;
       overflow: hidden;
     }
@@ -269,7 +272,7 @@
       align-items: center;
       font-weight: 700;
       letter-spacing: -0.5px;
-      animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s backwards;
+      animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.8s backwards;
       position: relative;
     }
     
@@ -287,8 +290,7 @@
     .section-emoji {
       font-size: 32px;
       margin-right: 12px;
-      flex-shrink: 0;
-      animation: recordingPulse 2s ease-in-out infinite;
+      animation: observeEye 3s ease-in-out infinite;
     }
     
     .section-block {
@@ -332,53 +334,28 @@
     }
     
     .section-block:nth-child(even) {
-      animation-delay: 0.8s;
-    }
-    
-    .section-block:nth-child(odd) {
       animation-delay: 1s;
     }
     
-    .section-title {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      color: #1f2937;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      font-size: 21px;
-      letter-spacing: -0.3px;
-      position: relative;
+    .section-block:nth-child(odd) {
+      animation-delay: 1.2s;
     }
     
-    .section-title .icon {
-      margin-right: 12px;
-      font-size: 24px;
-      color: #10b981;
-      flex-shrink: 0;
-      transition: transform 0.3s ease;
-    }
-    
-    .section-title:hover .icon {
-      transform: scale(1.1);
-    }
-    
-    .highlight-text {
+    .counterintuitive-tip {
       background: linear-gradient(135deg, #fef3c7, #fde68a);
       color: #92400e;
       font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 10px;
-      font-size: 16px;
-      display: inline-block;
-      margin: 3px 0;
-      box-shadow: 0 2px 8px rgba(251, 191, 36, 0.15);
-      transition: all 0.3s ease;
+      padding: 24px 28px;
+      border-radius: 16px;
+      font-size: 18px;
+      margin: 24px 0;
+      box-shadow: 0 4px 12px rgba(251, 191, 36, 0.15);
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
     
-    .highlight-text::before {
+    .counterintuitive-tip::before {
       content: '';
       position: absolute;
       top: 0;
@@ -389,152 +366,133 @@
       animation: shimmer 4s ease-in-out infinite;
     }
     
-    .highlight-text:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(251, 191, 36, 0.25);
+    .watch-list {
+      background: linear-gradient(135deg, #f3f4f6 0%, #f9fafb 100%);
+      padding: 24px;
+      border-radius: 16px;
+      margin: 24px 0;
+      border-left: 5px solid #6b7280;
     }
     
-    .observation-tips {
-      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #f0fdf4 100%);
+    .watch-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0;
+    }
+    
+    .watch-list li {
+      margin: 12px 0;
+      padding-left: 24px;
+      position: relative;
+      color: #4b5563;
+      font-weight: 500;
+    }
+    
+    .watch-list li::before {
+      content: "👁️";
+      position: absolute;
+      left: 0;
+      font-size: 16px;
+    }
+    
+    .methods-section {
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
       padding: 32px;
       border-radius: 20px;
-      margin: 36px 0;
-      border: 3px solid #10b981;
+      margin: 44px 0;
+      border: 3px solid #3b82f6;
       position: relative;
       overflow: hidden;
-      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.2s backwards;
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.4s backwards;
     }
     
-    .observation-tips::before {
+    .methods-section::before {
       content: '';
       position: absolute;
       top: 0;
       left: -100%;
       width: 100%;
       height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
       animation: shimmer 5s ease-in-out infinite;
     }
     
-    .tips-title {
+    .methods-title {
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
-      color: #047857;
-      margin-bottom: 20px;
-      font-size: 21px;
+      color: #1d4ed8;
+      margin-bottom: 24px;
+      font-size: 22px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .method {
+      margin: 24px 0;
+      padding: 24px 28px 24px 60px;
+      position: relative;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      border-left: 5px solid #3b82f6;
+      transition: all 0.3s ease;
+      counter-increment: method-counter;
+    }
+    
+    .method::before {
+      content: counter(method-counter);
+      position: absolute;
+      left: 20px;
+      top: 24px;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .tips-title .icon {
-      margin-right: 12px;
-      font-size: 24px;
-      color: #10b981;
-      flex-shrink: 0;
-      transition: transform 0.3s ease;
-    }
-    
-    .tips-title:hover .icon {
-      transform: scale(1.1);
-    }
-    
-    .tip-item {
-      background: rgba(255, 255, 255, 0.8);
-      padding: 24px;
-      border-radius: 16px;
-      margin: 20px 0;
-      border-left: 4px solid #059669;
-      position: relative;
-      z-index: 2;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
       transition: all 0.3s ease;
     }
     
-    .tip-item:hover {
-      transform: translateX(8px);
-      background: rgba(255, 255, 255, 0.95);
-      border-left-color: #047857;
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+    .methods-section {
+      counter-reset: method-counter;
     }
     
-    .tip-number {
+    .method:hover {
+      transform: translateX(8px);
+      background: rgba(255, 255, 255, 1);
+      border-left-color: #1d4ed8;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    }
+    
+    .method:hover::before {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+    }
+    
+    .method-title {
       font-family: 'Poppins', sans-serif;
       font-weight: 700;
-      color: #10b981;
-      font-size: 17px;
-      margin-bottom: 8px;
+      color: #1d4ed8;
+      margin-bottom: 12px;
+      font-size: 18px;
     }
     
-    .tip-title {
-      font-weight: 600;
-      color: #047857;
-      margin-bottom: 8px;
-      font-size: 16px;
-    }
-    
-    .observation-questions {
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-      padding: 18px 22px;
-      border-radius: 12px;
-      margin: 14px 0;
-      border: 2px dashed #cbd5e1;
-      transition: all 0.3s ease;
-    }
-    
-    .observation-questions:hover {
-      border-color: #10b981;
-      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
-    }
-    
-    .observation-questions ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    
-    .observation-questions li {
-      margin: 8px 0;
-      padding-left: 24px;
-      position: relative;
-      color: #6b7280;
-      font-style: italic;
-      font-size: 15px;
-      transition: all 0.3s ease;
-    }
-    
-    .observation-questions li::before {
-      content: "👀";
-      position: absolute;
-      left: 0;
-      font-size: 16px;
-      transition: transform 0.3s ease;
-    }
-    
-    .observation-questions li:hover {
-      color: #374151;
-      transform: translateX(4px);
-    }
-    
-    .observation-questions li:hover::before {
-      transform: scale(1.2);
-    }
-    
-    .insight-box {
+    .golden-insight {
       background: linear-gradient(135deg, #fef7ff 0%, #fdf4ff 100%);
-      padding: 24px;
-      border-radius: 16px;
-      margin: 24px 0;
-      border-left: 4px solid #a855f7;
-      color: #7c3aed;
-      text-align: center;
-      font-weight: 600;
+      padding: 32px;
+      border-radius: 20px;
+      margin: 44px 0;
+      border: 3px solid #a855f7;
       position: relative;
       overflow: hidden;
-      transition: all 0.3s ease;
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.6s backwards;
     }
     
-    .insight-box::before {
+    .golden-insight::before {
       content: '';
       position: absolute;
       top: 0;
@@ -545,9 +503,47 @@
       animation: shimmer 6s ease-in-out infinite;
     }
     
-    .insight-box:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(168, 85, 247, 0.15);
+    .golden-insight-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      color: #7c3aed;
+      margin-bottom: 16px;
+      font-size: 21px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .golden-insight p {
+      color: #6b46c1;
+      font-weight: 500;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .golden-rule {
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #ecfdf5 100%);
+      padding: 32px;
+      border-radius: 20px;
+      margin: 44px 0;
+      color: #047857;
+      font-weight: 700;
+      font-size: 19px;
+      border: 3px solid #10b981;
+      text-align: center;
+      animation: fadeInScale 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.8s backwards;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .golden-rule::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 5s ease-in-out infinite;
     }
     
     .challenge-box {
@@ -563,7 +559,7 @@
         0 8px 25px -5px rgba(251, 191, 36, 0.15),
         0 4px 10px -2px rgba(251, 191, 36, 0.1);
       position: relative;
-      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.6s backwards;
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 2s backwards;
       overflow: hidden;
       transition: all 0.3s ease;
     }
@@ -598,49 +594,6 @@
       z-index: 2;
     }
     
-    .challenge-task {
-      background: rgba(255, 255, 255, 0.8);
-      padding: 20px;
-      border-radius: 12px;
-      margin: 20px 0;
-      text-align: center;
-      font-weight: 600;
-      position: relative;
-      z-index: 2;
-      transition: all 0.3s ease;
-    }
-    
-    .challenge-task:hover {
-      background: rgba(255, 255, 255, 0.95);
-      transform: scale(1.02);
-    }
-    
-    .golden-rule {
-      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #ecfdf5 100%);
-      padding: 32px;
-      border-radius: 20px;
-      margin: 44px 0;
-      color: #047857;
-      font-weight: 700;
-      font-size: 19px;
-      border: 3px solid #10b981;
-      text-align: center;
-      animation: fadeInScale 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.4s backwards;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .golden-rule::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      animation: shimmer 5s ease-in-out infinite;
-    }
-    
     .quote-block {
       background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
       color: #e2e8f0;
@@ -654,7 +607,7 @@
         0 10px 10px -5px rgba(0, 0, 0, 0.08);
       font-size: 19px;
       line-height: 1.7;
-      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.8s backwards;
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 2.2s backwards;
       overflow: hidden;
     }
     
@@ -671,13 +624,22 @@
       border-radius: 20px 20px 0 0;
     }
     
+    .quote-author {
+      display: block;
+      color: #94a3b8;
+      font-size: 16px;
+      font-weight: 500;
+      margin-top: 16px;
+      font-style: normal;
+    }
+    
     .closing-block {
       text-align: center;
       padding: 65px 35px 75px;
       background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%);
       border-top: 1px solid #e2e8f0;
       position: relative;
-      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 2s backwards;
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 2.4s backwards;
       overflow: hidden;
     }
     
@@ -694,14 +656,6 @@
       animation: shimmer 3s linear infinite;
       border-radius: 0 0 6px 6px;
     }
-
-    .signature {
-        font-size: 14px;
-        color: #9ca3af;
-        margin: 0;
-        font-family: 'Inter', Arial, sans-serif;
-    }
-
     
     .closing-block p {
       margin: 16px 0;
@@ -724,15 +678,14 @@
       font-style: italic;
       margin-bottom: 20px;
     }
-
-
-    /* Responsive Images */
-    img {
-      max-width: 100%;
-      height: auto;
+    
+    .signature {
+      font-size: 14px;
+      color: #9ca3af;
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
     }
-
-
+    
     /* Enhanced Mobile Responsiveness */
     @media only screen and (max-width: 768px) {
       .container {
@@ -748,8 +701,9 @@
         font-size: 28px;
       }
       
-      .header-subline {
-        font-size: 16px;
+      .opening-quote {
+        padding: 25px 20px;
+        font-size: 18px;
       }
       
       .intro {
@@ -792,54 +746,34 @@
         font-size: 20px;
       }
     }
-
-
-    /* Mobile Responsive Styles - Following exact specifications */
+    
     @media (max-width: 480px) {
-      /* Main title (h1 equivalent) */
       .newsletter-title {
         font-size: 1.8rem;
         line-height: 1.3;
       }
       
-      /* Subheadings (h2, h3 equivalent) */
       .content h2,
-      .section-title,
       .challenge-title,
-      .tips-title,
-      .tip-number,
-      .tip-title,
+      .golden-insight-title,
+      .methods-title,
+      .method-title,
       .closing-block .final-quote {
         font-size: 1.3rem;
         line-height: 1.4;
       }
       
-      /* Body text and lists */
-      p, 
-      li,
-      .content,
-      .intro,
-      .quote-block,
-      .challenge-box,
-      .golden-rule,
-      .section-block,
-      .observation-tips,
-      .tip-item,
-      .observation-questions,
-      .insight-box,
-      .challenge-task {
+      p, li, .intro, .content, .golden-rule, .challenge-box, .golden-insight, .quote-block, .section-block, .methods-section {
         font-size: 1rem;
         line-height: 1.6;
       }
       
-      /* Container padding as requested */
       .container {
         padding: 0 20px;
         margin: 20px auto;
         border-radius: 16px;
       }
       
-      /* Enhanced mobile spacing and readability */
       .header {
         padding: 30px 25px 25px;
       }
@@ -851,7 +785,6 @@
       
       .header-subline {
         font-size: 0.9rem;
-        line-height: 1.4;
         margin-bottom: 16px;
       }
       
@@ -862,19 +795,14 @@
       
       .header-quote {
         font-size: 0.85rem;
-        line-height: 1.4;
       }
       
       .intro {
         padding: 25px;
-        font-size: 1rem;
-        line-height: 1.6;
       }
       
       .content {
         padding: 30px 25px;
-        font-size: 1rem;
-        line-height: 1.6;
       }
       
       .section-emoji {
@@ -883,102 +811,21 @@
       }
       
       .section-block {
-        margin: 24px 0;
         padding: 20px;
+        margin: 24px 0;
         border-radius: 12px;
-      }
-      
-      .section-title .icon {
-        font-size: 1.1rem;
-        margin-right: 8px;
-      }
-      
-      .highlight-text {
-        font-size: 0.9rem;
-        padding: 3px 10px;
-        word-break: break-word;
-        display: inline;
-      }
-      
-      .observation-tips {
-        padding: 20px;
-        margin: 24px 0;
-        font-size: 1rem;
-        line-height: 1.6;
-      }
-      
-      .tips-title {
-        font-size: 1.3rem;
-        line-height: 1.4;
-        margin-bottom: 16px;
-      }
-      
-      .tip-item {
-        padding: 16px;
-        margin: 14px 0;
-        font-size: 1rem;
-        line-height: 1.6;
-      }
-      
-      .tip-number {
-        font-size: 1.1rem;
-        margin-bottom: 6px;
-      }
-      
-      .tip-title {
-        font-size: 1rem;
-        margin-bottom: 6px;
-      }
-      
-      .observation-questions {
-        padding: 14px 16px;
-        margin: 10px 0;
-        font-size: 1rem;
-        line-height: 1.6;
-      }
-      
-      .observation-questions li {
-        margin: 4px 0;
-        padding-left: 16px;
-        font-size: 0.9rem;
-        line-height: 1.6;
-      }
-      
-      .insight-box {
-        padding: 16px;
-        margin: 16px 0;
-        font-size: 1rem;
-        line-height: 1.6;
-      }
-      
-      .golden-rule {
-        padding: 20px;
-        margin: 24px 0;
-        font-size: 1rem;
-        line-height: 1.6;
       }
       
       .quote-block {
         margin: 25px 0;
         padding: 25px 20px;
-        font-size: 1rem;
-        line-height: 1.6;
         border-radius: 12px;
       }
       
       .challenge-box {
         margin: 25px 0;
         padding: 20px;
-        font-size: 1rem;
-        line-height: 1.6;
         border-radius: 12px;
-      }
-      
-      .challenge-task {
-        padding: 14px;
-        margin: 14px 0;
-        font-size: 1rem;
-        line-height: 1.6;
       }
       
       .closing-block {
@@ -987,18 +834,14 @@
       
       .closing-block .note {
         font-size: 0.9rem;
-        line-height: 1.4;
       }
       
-      /* Prevent text overflow */
       p, div, span {
         word-wrap: break-word;
         overflow-wrap: break-word;
       }
     }
-
-
-    /* Extra small screens (320px) */
+    
     @media (max-width: 320px) {
       .container {
         padding: 0 15px;
@@ -1021,22 +864,6 @@
         padding: 16px;
       }
       
-      .observation-tips {
-        padding: 16px;
-      }
-      
-      .tip-item {
-        padding: 14px;
-      }
-      
-      .observation-questions {
-        padding: 12px;
-      }
-      
-      .insight-box {
-        padding: 14px;
-      }
-      
       .quote-block {
         padding: 20px 16px;
       }
@@ -1045,11 +872,7 @@
         padding: 16px;
       }
       
-      .challenge-task {
-        padding: 12px;
-      }
-      
-      .golden-rule {
+      .golden-rule, .golden-insight, .methods-section {
         padding: 16px;
       }
       
@@ -1093,107 +916,92 @@
       <div class="header-quote">"Great speakers are great observers first."</div>
     </div>
 
-
     <!-- INTRO -->
     <div class="intro">
-      Welcome to this week's edition! Discover the hidden skill that separates good speakers from truly powerful ones — and how to develop it starting today.
+      <div class="read-time">Read Time: 2 minutes</div>
+      <p><strong>Want to be a better speaker?</strong> Here's a tip that might sound counterintuitive: Stop speaking. Start observing.</p>
+      <p>Discover the hidden skill that separates good speakers from truly powerful ones — and how to develop it starting today.</p>
     </div>
-
 
     <!-- MAIN CONTENT -->
     <div class="content">
-      <h2><span class="section-emoji">🎯</span>The One Skill Every Powerful Speaker Builds Silently</h2>
-
+      <h2><span class="section-emoji">👁️</span>Why You Should Stop Talking… and Start Watching</h2>
 
       <div class="section-block">
-        <div class="section-title"><span class="icon">👁️</span>Why You Should Stop Talking… and Start Watching</div>
-        <p>Want to be a better speaker?</p>
+        <p><strong>Want to be a better speaker?</strong></p>
         <p>Here's a tip that might sound counterintuitive:</p>
-        <p><strong>Stop speaking.<br/>
-        Start observing.</strong></p>
-        <p>Watch how people listen.<br/>
-        Watch how their eyebrows rise at a certain word.<br/>
-        Watch when they nod.<br/>
-        Watch when they drift away.</p>
-        <div class="insight-box">
-          Every room tells a story. Great speakers learn to read it.
+        
+        <div class="counterintuitive-tip">
+          Stop speaking. Start observing.
         </div>
-      </div>
 
+        <div class="watch-list">
+          <ul>
+            <li>Watch how people listen.</li>
+            <li>Watch how their eyebrows rise at a certain word.</li>
+            <li>Watch when they nod.</li>
+            <li>Watch when they drift away.</li>
+          </ul>
+        </div>
+
+        <p><strong>Every room tells a story. Great speakers learn to read it.</strong></p>
+      </div>
 
       <div class="section-block">
-        <div class="section-title"><span class="icon">🔎</span>The Art of Silent Skill-Building</div>
         <p>Think of the best speakers you've seen.</p>
-        <p><span class="highlight-text">They don't just speak well — they react well.</span></p>
+        <p>They don't just speak well — they react well.</p>
         <p>They pick up on what the audience is thinking before anyone says a word.</p>
-        <p>That's not talent.</p>
-        <p><strong>That's training.</strong></p>
-        <p>You can train that too.</p>
+        <p><strong>That's not talent. That's training. You can train that too.</strong></p>
       </div>
 
-
-      <div class="observation-tips">
-        <div class="tips-title"><span class="icon">🛠️</span>How to Build It</div>
+      <div class="methods-section">
+        <div class="methods-title">🛠️ How to Build It</div>
         <p>Here are 3 ways to sharpen your observation game:</p>
         
-        <div class="tip-item">
-          <div class="tip-number">1. Watch a speaker… and the audience.</div>
-          <div class="tip-title">Next time you're at a talk (or even watching one online), don't just focus on the speaker. Look at the crowd.</div>
-          <div class="observation-questions">
-            <ul>
-              <li>When do they lean in?</li>
-              <li>When do they check their phones?</li>
-              <li>What gestures make them smile?</li>
-            </ul>
-          </div>
+        <div class="method">
+          <div class="method-title">Watch a speaker… and the audience.</div>
+          <p>Next time you're at a talk (or even watching one online), don't just focus on the speaker. Look at the crowd.</p>
+          <p>When do they lean in? When do they check their phones? What gestures make them smile?</p>
         </div>
-        
-        <div class="tip-item">
-          <div class="tip-number">2. Mirror test.</div>
-          <div class="tip-title">Record yourself giving a 1-minute talk. Watch it without sound.</div>
-          <p>What do your gestures, eyes, and posture say without words?</p>
+
+        <div class="method">
+          <div class="method-title">Mirror test.</div>
+          <p>Record yourself giving a 1-minute talk. Watch it without sound.</p>
+          <p><strong>What do your gestures, eyes, and posture say without words?</strong></p>
         </div>
-        
-        <div class="tip-item">
-          <div class="tip-number">3. Silence scan.</div>
-          <div class="tip-title">After you say something important in a conversation or speech — pause.</div>
-          <p>Notice how people react in that quiet.</p>
-          <p><span class="highlight-text">That's real-time feedback.</span></p>
+
+        <div class="method">
+          <div class="method-title">Silence scan.</div>
+          <p>After you say something important in a conversation or speech — pause.</p>
+          <p>Notice how people react in that quiet. <strong>That's real-time feedback.</strong></p>
         </div>
       </div>
 
-
-      <div class="golden-rule">
-        <strong>🧠 Golden Point:</strong> Your power on stage grows the moment you stop performing and start perceiving.
+      <div class="golden-insight">
+        <div class="golden-insight-title">🧠 Golden Point</div>
+        <p>Your power on stage grows the moment you stop performing and start perceiving.</p>
       </div>
-
 
       <div class="challenge-box">
         <div class="challenge-title">🧪 Challenge of the Week</div>
         <p>Go one entire day without giving advice, commenting, or jumping in.</p>
-        <p><strong>Your task?</strong></p>
-        <div class="challenge-task">
-          🎯 Just watch how people speak, how they move, and when they lose confidence mid-sentence.
-        </div>
-        <p>Then write down 3 subtle things you noticed.</p>
-        <p><strong>You'll be shocked how much you've missed.</strong></p>
+        <p><strong>Your task?</strong> 🎯 Just watch how people speak, how they move, and when they lose confidence mid-sentence.</p>
+        <p>Then write down 3 subtle things you noticed. <strong>You'll be shocked how much you've missed.</strong></p>
       </div>
     </div>
 
-
-    <!-- MID-ISSUE QUOTE BLOCK -->
+    <!-- QUOTE BLOCK -->
     <div class="quote-block">
       "Most people listen to reply. Great communicators listen to understand."
+      <span class="quote-author">— Anonymous</span>
     </div>
-
 
     <!-- CLOSING BLOCK -->
     <div class="closing-block">
-    <p class="final-quote">"Observation is where clarity begins. And clarity is where confidence is built."</p>
-    <p class="note">— End of Volume 1, Issue 7 —</p>
-    <p class="signature">Crafted with ❤️ by <strong>Nehansh Kesharwani</strong></p>
+      <p class="final-quote">"Observation is where clarity begins. And clarity is where confidence is built."</p>
+      <p class="note">— End of Volume 1, Issue 7 —</p>
+      <p class="signature">Crafted with ❤️ by <strong>Nehansh Kesharwani</strong></p>
     </div>
-
   </div>
 </body>
 </html>
