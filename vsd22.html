@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veritas Speaking Digest – Vol. 1, Issue 22</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+      color: #1f2937;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 
+        0 32px 64px -12px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(15, 23, 42, 0.06),
+        0 8px 32px -8px rgba(16, 185, 129, 0.08);
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.08);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: containerEntry 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      position: relative;
+    }
+    
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    @keyframes containerEntry {
+      from { 
+        opacity: 0; 
+        transform: translateY(30px) scale(0.98);
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    @keyframes slideInLeft {
+      from { 
+        opacity: 0; 
+        transform: translateX(-40px);
+      }
+      to { 
+        opacity: 1; 
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes slideInUp {
+      from { 
+        opacity: 0; 
+        transform: translateY(24px);
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInScale {
+      from { 
+        opacity: 0; 
+        transform: scale(0.95);
+      }
+      to { 
+        opacity: 1; 
+        transform: scale(1);
+      }
+    }
+    
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    
+    @keyframes recordingPulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+    
+    @keyframes nikePulse {
+      0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
+      50% { transform: scale(1.1) rotate(5deg); opacity: 1; }
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 35%, #334155 100%);
+      color: white;
+      text-align: center;
+      padding: 50px 30px 45px;
+      position: relative;
+      overflow: hidden;
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #10b981, #059669, #047857, #10b981);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+    
+    .header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    
+    .header img {
+      width: 120px;
+      margin-bottom: 24px;
+      filter: brightness(1.1) drop-shadow(0 4px 8px rgba(16, 185, 129, 0.2));
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .header img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+    
+    .newsletter-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 34px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.8px;
+      background: linear-gradient(135deg, #ffffff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .header-subline {
+      font-size: 18px;
+      font-style: italic;
+      margin-bottom: 24px;
+      opacity: 0.9;
+      color: #cbd5e1;
+      font-weight: 300;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .header-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      box-shadow: 
+        0 6px 20px rgba(16, 185, 129, 0.3),
+        0 2px 8px rgba(16, 185, 129, 0.2);
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+    
+    .header-tag:hover {
+      transform: translateY(-2px);
+      box-shadow: 
+        0 8px 25px rgba(16, 185, 129, 0.4),
+        0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    
+    .header-quote {
+      font-size: 16px;
+      font-style: italic;
+      opacity: 0.8;
+      margin-top: 16px;
+      color: #94a3b8;
+      font-weight: 300;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .read-time {
+      background: rgba(16, 185, 129, 0.1);
+      color: #047857;
+      padding: 8px 16px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+    
+    .intro {
+      padding: 45px 40px;
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #ecfdf5 100%);
+      font-size: 19px;
+      color: #047857;
+      font-weight: 500;
+      line-height: 1.7;
+      border-bottom: 4px solid #10b981;
+      animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.4s backwards;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .intro::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    
+    .content {
+      padding: 50px 40px;
+      font-size: 17px;
+      line-height: 1.8;
+      color: #374151;
+      font-weight: 400;
+      position: relative;
+    }
+    
+    .content h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      color: #1f2937;
+      margin-top: 0;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      animation: slideInLeft 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.6s backwards;
+      position: relative;
+    }
+    
+    .content h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #10b981, #059669);
+      border-radius: 2px;
+    }
+    
+    .section-emoji {
+      font-size: 32px;
+      margin-right: 12px;
+      animation: nikePulse 3s ease-in-out infinite;
+    }
+    
+    .lesson-block {
+      background: #ffffff;
+      margin: 36px 0;
+      padding: 32px;
+      border-radius: 20px;
+      box-shadow: 
+        0 8px 25px -5px rgba(0, 0, 0, 0.08),
+        0 4px 10px -2px rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(241, 245, 249, 0.8);
+      border-left: 6px solid #10b981;
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .lesson-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.02) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .lesson-block:hover {
+      transform: translateY(-4px);
+      box-shadow: 
+        0 12px 40px -8px rgba(0, 0, 0, 0.12),
+        0 8px 20px -4px rgba(16, 185, 129, 0.08);
+      border-left-color: #059669;
+    }
+    
+    .lesson-block:hover::before {
+      opacity: 1;
+    }
+    
+    .lesson-block:nth-child(even) {
+      animation-delay: 0.8s;
+    }
+    
+    .lesson-block:nth-child(odd) {
+      animation-delay: 1s;
+    }
+    
+    .lesson-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 16px;
+      font-size: 21px;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .lesson-number {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      margin-right: 12px;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      transition: all 0.3s ease;
+    }
+    
+    .lesson-title:hover .lesson-number {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    }
+    
+    .lesson-highlight {
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+      color: #92400e;
+      font-weight: 600;
+      padding: 20px 24px;
+      border-radius: 16px;
+      font-size: 16px;
+      margin: 20px 0;
+      box-shadow: 0 4px 12px rgba(251, 191, 36, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .lesson-highlight::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 4s ease-in-out infinite;
+    }
+    
+    .lesson-highlight strong {
+      color: #78350f;
+    }
+    
+    .nike-philosophy {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: #e2e8f0;
+      padding: 32px;
+      margin: 44px 0;
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.12), 
+        0 10px 10px -5px rgba(0, 0, 0, 0.08);
+      font-size: 18px;
+      line-height: 1.6;
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.2s backwards;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .nike-philosophy::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6b35, #f7931e, #ff6b35);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+      border-radius: 20px 20px 0 0;
+    }
+    
+    .nike-swoosh {
+      font-size: 24px;
+      margin-bottom: 16px;
+      display: inline-block;
+      animation: nikePulse 2s ease-in-out infinite;
+    }
+    
+    .golden-insight {
+      background: linear-gradient(135deg, #fef7ff 0%, #fdf4ff 100%);
+      padding: 32px;
+      border-radius: 20px;
+      margin: 44px 0;
+      border: 3px solid #a855f7;
+      position: relative;
+      overflow: hidden;
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.4s backwards;
+    }
+    
+    .golden-insight::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.1), transparent);
+      animation: shimmer 6s ease-in-out infinite;
+    }
+    
+    .golden-insight-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      color: #7c3aed;
+      margin-bottom: 16px;
+      font-size: 21px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .golden-insight p {
+      color: #6b46c1;
+      font-weight: 500;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .golden-rule {
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #ecfdf5 100%);
+      padding: 32px;
+      border-radius: 20px;
+      margin: 44px 0;
+      color: #047857;
+      font-weight: 700;
+      font-size: 19px;
+      border: 3px solid #10b981;
+      text-align: center;
+      animation: fadeInScale 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.6s backwards;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .golden-rule::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 5s ease-in-out infinite;
+    }
+    
+    .challenge-box {
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 50%, #fffbeb 100%);
+      margin: 44px 0;
+      padding: 32px;
+      border-radius: 20px;
+      color: #92400e;
+      font-weight: 500;
+      font-size: 16px;
+      border: 2px solid #fed7aa;
+      box-shadow: 
+        0 8px 25px -5px rgba(251, 191, 36, 0.15),
+        0 4px 10px -2px rgba(251, 191, 36, 0.1);
+      position: relative;
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.8s backwards;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .challenge-box::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 6px;
+      background: linear-gradient(180deg, #f59e0b, #d97706, #f59e0b);
+      background-size: 100% 200%;
+      animation: shimmer 4s linear infinite;
+      border-radius: 20px 0 0 20px;
+    }
+    
+    .challenge-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 
+        0 12px 40px -8px rgba(251, 191, 36, 0.2),
+        0 8px 20px -4px rgba(251, 191, 36, 0.15);
+    }
+    
+    .challenge-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      color: #92400e;
+      margin-bottom: 20px;
+      font-size: 19px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .quote-block {
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      color: #e2e8f0;
+      padding: 40px 45px;
+      margin: 50px 40px 40px;
+      font-style: italic;
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 
+        0 20px 25px -5px rgba(0, 0, 0, 0.12), 
+        0 10px 10px -5px rgba(0, 0, 0, 0.08);
+      font-size: 19px;
+      line-height: 1.7;
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 2s backwards;
+      overflow: hidden;
+    }
+    
+    .quote-block::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #10b981, #059669, #10b981);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+      border-radius: 20px 20px 0 0;
+    }
+    
+    .quote-author {
+      display: block;
+      color: #94a3b8;
+      font-size: 16px;
+      font-weight: 500;
+      margin-top: 16px;
+      font-style: normal;
+    }
+    
+    .closing-block {
+      text-align: center;
+      padding: 65px 35px 75px;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #f8fafc 100%);
+      border-top: 1px solid #e2e8f0;
+      position: relative;
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 2.2s backwards;
+      overflow: hidden;
+    }
+    
+    .closing-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, #10b981, #059669, #10b981);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+      border-radius: 0 0 6px 6px;
+    }
+    
+    .closing-block p {
+      margin: 16px 0;
+    }
+    
+    .closing-block .final-quote {
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 20px;
+      line-height: 1.4;
+      letter-spacing: -0.3px;
+    }
+    
+    .closing-block .note {
+      font-size: 15px;
+      color: #6b7280;
+      font-weight: 400;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    
+    .signature {
+      font-size: 14px;
+      color: #9ca3af;
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+    }
+    
+    /* Enhanced Mobile Responsiveness */
+    @media only screen and (max-width: 768px) {
+      .container {
+        margin: 20px 15px;
+        border-radius: 20px;
+      }
+      
+      .header {
+        padding: 40px 25px 35px;
+      }
+      
+      .newsletter-title {
+        font-size: 28px;
+      }
+      
+      .header-subline {
+        font-size: 16px;
+      }
+      
+      .intro {
+        padding: 35px 25px;
+        font-size: 17px;
+      }
+      
+      .content {
+        padding: 35px 25px;
+        font-size: 16px;
+      }
+      
+      .content h2 {
+        font-size: 24px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .section-emoji {
+        margin-bottom: 8px;
+        margin-right: 0;
+      }
+      
+      .lesson-block {
+        padding: 24px;
+        margin: 28px 0;
+        border-radius: 16px;
+      }
+      
+      .challenge-box {
+        padding: 24px;
+        font-size: 15px;
+      }
+      
+      .closing-block {
+        padding: 45px 25px 55px;
+      }
+      
+      .closing-block .final-quote {
+        font-size: 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .newsletter-title {
+        font-size: 1.8rem;
+        line-height: 1.3;
+      }
+      
+      .content h2,
+      .lesson-title,
+      .challenge-title,
+      .golden-insight-title,
+      .closing-block .final-quote {
+        font-size: 1.3rem;
+        line-height: 1.4;
+      }
+      
+      p, li, .intro, .content, .golden-rule, .challenge-box, .golden-insight, .quote-block, .lesson-block, .nike-philosophy {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+      
+      .container {
+        padding: 0 20px;
+        margin: 20px auto;
+        border-radius: 16px;
+      }
+      
+      .header {
+        padding: 30px 25px 25px;
+      }
+      
+      .header img {
+        width: 80px;
+        margin-bottom: 15px;
+      }
+      
+      .header-subline {
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+      }
+      
+      .header-tag {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+      }
+      
+      .header-quote {
+        font-size: 0.85rem;
+      }
+      
+      .intro {
+        padding: 25px;
+      }
+      
+      .content {
+        padding: 30px 25px;
+      }
+      
+      .section-emoji {
+        font-size: 1.2rem;
+        margin-right: 8px;
+      }
+      
+      .lesson-block {
+        padding: 20px;
+        margin: 24px 0;
+        border-radius: 12px;
+      }
+      
+      .quote-block {
+        margin: 25px 0;
+        padding: 25px 20px;
+        border-radius: 12px;
+      }
+      
+      .challenge-box {
+        margin: 25px 0;
+        padding: 20px;
+        border-radius: 12px;
+      }
+      
+      .closing-block {
+        padding: 40px 25px 50px;
+      }
+      
+      .closing-block .note {
+        font-size: 0.9rem;
+      }
+      
+      p, div, span {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+    }
+    
+    @media (max-width: 320px) {
+      .container {
+        padding: 0 15px;
+        margin: 15px auto;
+      }
+      
+      .header {
+        padding: 25px 20px 20px;
+      }
+      
+      .intro {
+        padding: 20px;
+      }
+      
+      .content {
+        padding: 25px 20px;
+      }
+      
+      .lesson-block {
+        padding: 16px;
+      }
+      
+      .quote-block {
+        padding: 20px 16px;
+      }
+      
+      .challenge-box {
+        padding: 16px;
+      }
+      
+      .golden-rule, .golden-insight, .nike-philosophy {
+        padding: 16px;
+      }
+      
+      .closing-block {
+        padding: 35px 20px 40px;
+      }
+    }
+    
+    /* Accessibility and Performance Optimizations */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+    
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+      .container {
+        border: 2px solid #000;
+      }
+      
+      .lesson-block {
+        border: 1px solid #000;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <div class="header">
+      <img src="https://res.cloudinary.com/dnwh5mmhz/image/upload/v1753195357/Main-logo-wo-bg_m9mz2a.png" alt="Veritas Logo" />
+      <div class="newsletter-title">Veritas Speaking Digest</div>
+      <div class="header-subline">Your weekly dose of speaking brilliance</div>
+      <div class="header-tag">Vol. 1 • Issue 22 • December 2025</div>
+      <div class="header-quote">"Passion outshines perfection. If you feel it, they'll believe it."</div>
+    </div>
+
+    <!-- INTRO -->
+    <div class="intro">
+      <div class="read-time">Read Time: 2 minutes</div>
+      <p><strong>When you think of Nike, you probably think of its swoosh, athletes, or the slogan "Just Do It."</strong></p>
+      
+      <p>But behind this global brand is the story of Phil Knight, a shy runner from Oregon who turned a crazy idea into one of the world's most iconic movements. His journey holds a powerful lesson for anyone who wants to speak, lead, or inspire.</p>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+      <h2><span class="section-emoji">🏃‍♂️</span>The Key to Nike's Success — The Power of Belief in Communication</h2>
+
+      <div class="lesson-block">
+        <div class="lesson-title">
+          <span class="lesson-number">1</span>
+          Passion Makes People Listen
+        </div>
+        <p>Phil Knight had no company, no team, and no resources. Yet, when he pitched Japanese manufacturer Onitsuka Tiger to let him be their U.S. distributor, his passion alone convinced them.</p>
+        
+        <div class="lesson-highlight">
+          <strong>Lesson:</strong> When you speak with genuine belief, people feel it. Great communication is less about "perfect words" and more about energy and conviction.
+        </div>
+      </div>
+
+      <div class="lesson-block">
+        <div class="lesson-title">
+          <span class="lesson-number">2</span>
+          Sell a Vision, Not a Product
+        </div>
+        <p>Phil didn't just sell shoes out of his car—he sold the idea of better performance and pushing limits.</p>
+        <p>Later, Nike's "Just Do It" slogan turned this vision into a movement about courage and action.</p>
+        
+        <div class="lesson-highlight">
+          <strong>Lesson:</strong> Your audience connects with purpose, not just facts. Make them see "why it matters."
+        </div>
+      </div>
+
+      <div class="lesson-block">
+        <div class="lesson-title">
+          <span class="lesson-number">3</span>
+          Overcome "No" With Storytelling
+        </div>
+        <p>Phil Knight faced rejection, legal battles, and competition from Adidas and Puma. Yet he kept telling stories about athletes and victory.</p>
+        
+        <div class="lesson-highlight">
+          <strong>Lesson:</strong> When you speak about overcoming odds, you inspire others to believe they can, too.
+        </div>
+      </div>
+
+      <div class="nike-philosophy">
+        <div class="nike-swoosh">✓</div>
+        <p><strong>"Just Do It"</strong> — Three words that became a global movement because they captured a universal truth about courage and action.</p>
+      </div>
+
+      <div class="golden-insight">
+        <div class="golden-insight-title">Golden Insight 🪄</div>
+        <p>Belief is contagious. If you speak with passion and purpose, your audience will feel it—and believe in you.</p>
+      </div>
+
+      <div class="golden-rule">
+        <strong>Golden Point:</strong> Nike's success started with one person speaking with conviction about a simple idea—better shoes.
+      </div>
+
+      <div class="challenge-box">
+        <div class="challenge-title">Challenge of the Week 🎯</div>
+        <p>Think of one idea you deeply believe in. Write a 60-second speech or story about it. Read it aloud, but focus not on "sounding perfect" — focus on making your audience feel what you feel.</p>
+      </div>
+    </div>
+
+    <!-- QUOTE BLOCK -->
+    <div class="quote-block">
+      "If they feel it, they believe it."
+      <span class="quote-author">— Veritas Principle</span>
+    </div>
+
+    <!-- CLOSING BLOCK -->
+    <div class="closing-block">
+      <p class="final-quote">"The next time you speak, remember: passion outshines perfection. If you feel it, they'll believe it."</p>
+      <p class="note">— End of Volume 1, Issue 22 —</p>
+      <p class="signature">Crafted with ❤️ by <strong>Nehansh Kesharwani</strong></p>
+    </div>
+  </div>
+</body>
+</html>
