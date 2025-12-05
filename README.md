@@ -94,8 +94,11 @@ A comprehensive collection of **24 premium newsletters** designed to transform y
 
 ## 📁 Repository Structure
 veritas_newsletters/
+
 ├── vsd_vol1_collective.html # 🎯 Main collection hub (24 issues)
+
 ├── vsd1.html → vsd24.html # 📄 All 24 individual issues
+
 └── README.md # 📖 This file
 
 
