@@ -128,7 +128,6 @@ veritas_newsletters/
 [![Nehansh Kesharwani](https://img.shields.io/badge/Nehansh_Kesharwani-LinkedIn-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/nehanshkesharwani)
 
 [![GitHub](https://img.shields.io/badge/GitHub-veritas_newsletters-black?style=for-the-badge&logo=github)](https://github.com/nehanshkesharwani/veritas_newsletters)  
-[![Email](https://img.shields.io/badge/Email-nehanshkesharwaniofficial@gmail.com-red?style=for-the-badge&logo=gmail)](mailto:nehanshkesharwaniofficial@gmail.com)
 
 **Made for curious minds, dreamers, and future speakers who dare to speak.** 🚀✨🎤
 
