@@ -149,7 +149,7 @@ veritas_newsletters/
 
 ---
 
-**Keep practicing, stay inspired, and **never stop speaking**! 🎤🧠💫**
+**Keep practicing, stay inspired, and **never stop speaking**!🎤🧠💫**
 
 ---
 
