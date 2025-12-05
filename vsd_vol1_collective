@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Veritas Speaking Digest — Complete Volume 1 Collection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+      color: #1f2937;
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    .main-container {
+      max-width: 800px;
+      margin: 50px auto;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 
+        0 32px 64px -12px rgba(0, 0, 0, 0.12),
+        0 0 0 1px rgba(15, 23, 42, 0.06),
+        0 8px 32px -8px rgba(16, 185, 129, 0.08);
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.08);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: containerEntry 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      position: relative;
+    }
+    
+    .main-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.02) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    @keyframes containerEntry {
+      from { 
+        opacity: 0; 
+        transform: translateY(30px) scale(0.98);
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+      }
+    }
+    
+    @keyframes slideInUp {
+      from { 
+        opacity: 0; 
+        transform: translateY(24px);
+      }
+      to { 
+        opacity: 1; 
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 35%, #334155 100%);
+      color: white;
+      text-align: center;
+      padding: 50px 30px 45px;
+      position: relative;
+      overflow: hidden;
+      animation: slideInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s backwards;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #10b981, #059669, #047857, #10b981);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+    
+    .header::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    
+    .header img {
+      width: 120px;
+      margin-bottom: 24px;
+      filter: brightness(1.1) drop-shadow(0 4px 8px rgba(16, 185, 129, 0.2));
+      transition: transform 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .header img:hover {
+      transform: scale(1.05) rotate(2deg);
+    }
+    
+    .newsletter-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: -0.8px;
+      background: linear-gradient(135deg, #ffffff, #cbd5e1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .header-subline {
+      font-size: 18px;
+      font-style: italic;
+      margin-bottom: 24px;
+      opacity: 0.9;
+      color: #cbd5e1;
+      font-weight: 300;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .header-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      box-shadow: 
+        0 6px 20px rgba(16, 185, 129, 0.3),
+        0 2px 8px rgba(16, 185, 129, 0.2);
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+    
+    .header-tag:hover {
+      transform: translateY(-2px);
+      box-shadow: 
+        0 8px 25px rgba(16, 185, 129, 0.4),
+        0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    
+    .intro-section {
+      padding: 45px 40px;
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #ecfdf5 100%);
+      font-size: 16px;
+      color: #047857;
+      font-weight: 500;
+      line-height: 1.7;
+      border-bottom: 4px solid #10b981;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    
+    .intro-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    
+    .intro-section p {
+      margin: 0;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .issues-section {
+      padding: 50px 40px;
+    }
+    
+    .issues-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .issue-item {
+      margin: 20px 0;
+      padding: 24px;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      border-radius: 16px;
+      border: 1px solid rgba(203, 213, 225, 0.6);
+      border-left: 6px solid #10b981;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .issue-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 
+        0 12px 40px -8px rgba(0, 0, 0, 0.12),
+        0 8px 20px -4px rgba(16, 185, 129, 0.08);
+      border-left-color: #059669;
+    }
+    
+    .issue-item a {
+      position: relative;
+      z-index: 2;
+      text-decoration: none;
+      display: block;
+      transition: all 0.3s ease;
+    }
+    
+    .issue-number {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+    
+    .issue-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 12px 0 8px 0;
+      letter-spacing: -0.3px;
+    }
+    
+    .issue-title:hover {
+      color: #10b981;
+    }
+    
+    .issue-description {
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.6;
+      margin: 0;
+      font-style: italic;
+    }
+    
+    .footer-section {
+      padding: 50px 40px;
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #ecfdf5 100%);
+      border-top: 4px solid #10b981;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .footer-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    
+    .footer-quote {
+      font-family: 'Poppins', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #047857;
+      margin: 0 0 30px 0;
+      line-height: 1.4;
+      position: relative;
+      z-index: 2;
+      letter-spacing: -0.3px;
+    }
+    
+    .footer-quote::before {
+      content: '"';
+      font-size: 48px;
+      color: #10b981;
+      opacity: 0.3;
+      position: absolute;
+      top: -10px;
+      left: -15px;
+    }
+    
+    .footer-credits {
+      font-size: 16px;
+      color: #374151;
+      margin: 20px 0;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .footer-credits a {
+      color: #10b981;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-credits a:hover {
+      text-decoration: underline;
+      color: #059669;
+    }
+    
+    .footer-social {
+      font-size: 15px;
+      color: #6b7280;
+      margin: 15px 0 0 0;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .divider-line {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #10b981, #059669);
+      margin: 25px auto;
+      border-radius: 2px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    @media only screen and (max-width: 768px) {
+      .main-container {
+        margin: 20px 15px;
+        border-radius: 20px;
+      }
+      
+      .header {
+        padding: 40px 25px 35px;
+      }
+      
+      .newsletter-title {
+        font-size: 28px;
+      }
+      
+      .intro-section {
+        padding: 35px 25px;
+        font-size: 15px;
+      }
+      
+      .issues-section {
+        padding: 35px 25px;
+      }
+      
+      .issue-item {
+        padding: 20px;
+        margin: 16px 0;
+      }
+      
+      .issue-title {
+        font-size: 18px;
+      }
+      
+      .footer-section {
+        padding: 40px 25px;
+      }
+      
+      .footer-quote {
+        font-size: 22px;
+      }
+    }
+    
+    @media only screen and (max-width: 480px) {
+      .main-container {
+        margin: 15px 10px;
+        border-radius: 18px;
+      }
+      
+      .header {
+        padding: 35px 20px 30px;
+      }
+      
+      .newsletter-title {
+        font-size: 24px;
+      }
+      
+      .header img {
+        width: 100px;
+      }
+      
+      .intro-section {
+        padding: 30px 20px;
+        font-size: 14px;
+      }
+      
+      .issues-section {
+        padding: 30px 20px;
+      }
+      
+      .issue-item {
+        padding: 18px;
+        margin: 14px 0;
+      }
+      
+      .issue-title {
+        font-size: 16px;
+      }
+      
+      .footer-section {
+        padding: 35px 20px;
+      }
+      
+      .footer-quote {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="header">
+      <img src="https://res.cloudinary.com/dnwh5mmhz/image/upload/v1753195357/Main-logo-wo-bg_m9mz2a.png" alt="Veritas Logo" />
+      <div class="newsletter-title">Veritas Speaking Digest</div>
+      <div class="header-subline">Master the Art of Communication</div>
+      <div class="header-tag">Complete Collection • Volume 1 • 24 Issues</div>
+    </div>
+
+    <div class="intro-section">
+      <p><strong>Welcome to the Complete Volume 1 Collection!</strong></p>
+      <p>24 powerful issues packed with actionable insights, timeless principles, and transformative techniques to elevate your speaking skills, boost your confidence, and master the art of communication. Start your speaking journey today.</p>
+    </div>
+
+    <div class="issues-section">
+      <ul class="issues-list">
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd1.html">
+            <div class="issue-number">Issue 1</div>
+            <div class="issue-title">🍕 What Pizza Can Teach You About Public Speaking</div>
+            <p class="issue-description">Three timeless lessons from a pizza class that turn boring presentations into captivating experiences.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd2.html">
+            <div class="issue-number">Issue 2</div>
+            <div class="issue-title">🎤 The Art of Introducing Yourself</div>
+            <p class="issue-description">Master the 3C Method to craft introductions that make people remember you, not forget you.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd3.html">
+            <div class="issue-number">Issue 3</div>
+            <div class="issue-title">🎙️ How to 'Own the Room' When You Speak</div>
+            <p class="issue-description">Transform your presence into power by making your audience feel genuinely seen and involved.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd4.html">
+            <div class="issue-number">Issue 4</div>
+            <div class="issue-title">📘 10 Timeless Public Speaking Lessons from Warren Buffett</div>
+            <p class="issue-description">Discover the billionaire's secret playbook: simplicity, stories, and the power of clarity.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd5.html">
+            <div class="issue-number">Issue 5</div>
+            <div class="issue-title">🔥 Why Stress Might Be the Best Thing for Your Public Speaking</div>
+            <p class="issue-description">Reframe your nervousness as a doorway to excellence and unlock your full potential.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd6.html">
+            <div class="issue-number">Issue 6</div>
+            <div class="issue-title">🧠 The One Practice Every Speaker Should Try</div>
+            <p class="issue-description">One simple habit that will transform your delivery and cement your message in listeners' minds.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd7.html">
+            <div class="issue-number">Issue 7</div>
+            <div class="issue-title">👁️ Why You Should Stop Talking… and Start Watching</div>
+            <p class="issue-description">The power of observation: listen more, speak smarter, and command respect effortlessly.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd8.html">
+            <div class="issue-number">Issue 8</div>
+            <div class="issue-title">🎧 Why Your Voice Needs to Breathe</div>
+            <p class="issue-description">Master the forgotten art of silence, pauses that amplify your impact and captivate audiences.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd9.html">
+            <div class="issue-number">Issue 9</div>
+            <div class="issue-title">🤔 "Umm… Like… You Know?" The Hidden Cost of Filler Words</div>
+            <p class="issue-description">Eliminate verbal crutches and speak with the confidence and clarity that commands attention.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd10.html">
+            <div class="issue-number">Issue 10</div>
+            <div class="issue-title">🗣️ How NOT to Be Boring in Conversations</div>
+            <p class="issue-description">Techniques to keep people engaged, make conversations memorable, and build genuine connections.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd11.html">
+            <div class="issue-number">Issue 11</div>
+            <div class="issue-title">🎯 How to Present Like NVIDIA's CEO</div>
+            <p class="issue-description">Learn the minimalist, data-driven approach that turns complex ideas into compelling narratives.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd12.html">
+            <div class="issue-number">Issue 12</div>
+            <div class="issue-title">🚀 How to Become a Confident Speaker in Just 5 Minutes</div>
+            <p class="issue-description">Quick, proven techniques you can use right before your next presentation to radiate confidence.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd13.html">
+            <div class="issue-number">Issue 13</div>
+            <div class="issue-title">💼 How You Speak is How You Are Treated</div>
+            <p class="issue-description">Your words shape people's perception—elevate your language, elevate your position.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd14.html">
+            <div class="issue-number">Issue 14</div>
+            <div class="issue-title">🎯 Make People Believe You When You Speak</div>
+            <p class="issue-description">Master the psychology of credibility, the subtle signals that make audiences trust your every word.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd15.html">
+            <div class="issue-number">Issue 15</div>
+            <div class="issue-title">💫 How to Be Memorable in Any Conversation</div>
+            <p class="issue-description">Stand out from the crowd, techniques to make people think about you long after you're gone.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd16.html">
+            <div class="issue-number">Issue 16</div>
+            <div class="issue-title">🎙️ How to Develop a Powerful Voice</div>
+            <p class="issue-description">Transform your vocal power, projection, tone, and delivery that commands rooms without shouting.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd17.html">
+            <div class="issue-number">Issue 17</div>
+            <div class="issue-title">🎯 How to Speak to Superiors Without Fear</div>
+            <p class="issue-description">Navigate power dynamics with grace, strategies to speak up confidently in high-stakes conversations.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd18.html">
+            <div class="issue-number">Issue 18</div>
+            <div class="issue-title">🧠 The Confidence Lesson I Learned from a Hypnotist</div>
+            <p class="issue-description">Unlock your subconscious—how to rewire your mind for unstoppable speaking confidence.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd19.html">
+            <div class="issue-number">Issue 19</div>
+            <div class="issue-title">🎤 The BEST Way to Start a Speech</div>
+            <p class="issue-description">Nail your opening, five proven techniques to hook your audience in the first 30 seconds.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd20.html">
+            <div class="issue-number">Issue 20</div>
+            <div class="issue-title">👥 How to Speak to Mixed Audiences Without Losing Anyone</div>
+            <p class="issue-description">Bridge diverse perspectives, connect with everyone simultaneously by speaking to universal human experiences.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd21.html">
+            <div class="issue-number">Issue 21</div>
+            <div class="issue-title">🎭 How to Inspire an Audience in 2 Minutes – The Demi Moore Playbook</div>
+            <p class="issue-description">Time is short, impact must be huge, the formula to move hearts and minds in seconds.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd22.html">
+            <div class="issue-number">Issue 22</div>
+            <div class="issue-title">🏃‍♂️ The Key to Nike's Success - The Power of Belief in Communication</div>
+            <p class="issue-description">How one simple belief statement changed millions, the philosophy that fuels viral communication.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd23.html">
+            <div class="issue-number">Issue 23</div>
+            <div class="issue-title">🎵 The Power of Vocal Contrast! How to Grab Attention Instantly</div>
+            <p class="issue-description">Master the rhythm of speech - variance in pace, tone, and energy that hypnotizes listeners.</p>
+          </a>
+        </li>
+
+        <li class="issue-item">
+          <a href="https://nehanshkesharwani.github.io/veritas_newsletters/vsd24.html">
+            <div class="issue-number">Issue 24</div>
+            <div class="issue-title">❓ The Power of Rhetorical Questions. Make Your Audience Think</div>
+            <p class="issue-description">Ask, don't tell - harness the power of questions to make your message unforgettable.</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <div class="divider-line"></div>
+      <p class="footer-quote">The greatest speakers aren't born - they're built, one conversation, one presentation, one moment of courage at a time.</p>
+      <div class="divider-line"></div>
+      <p class="footer-credits">
+        Crafted with ❤️ by <a href="https://linkedin.com/in/nehanshkesharwani">Nehansh Kesharwani</a>
+      </p>
+      <p class="footer-social">
+        Made for curious minds, dreamers, and future speakers who dare to speak. 🚀✨🎤
+      </p>
+    </div>
+  </div>
+</body>
+</html>
